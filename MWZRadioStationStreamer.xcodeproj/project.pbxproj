@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96548D4A1613A629008A0C10 /* 83-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 96548D461613A629008A0C10 /* 83-calendar.png */; };
+		96548D4B1613A629008A0C10 /* 83-calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96548D471613A629008A0C10 /* 83-calendar@2x.png */; };
+		96548D4E1613A66A008A0C10 /* 194-note-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 96548D4C1613A66A008A0C10 /* 194-note-2.png */; };
+		96548D4F1613A66A008A0C10 /* 194-note-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96548D4D1613A66A008A0C10 /* 194-note-2@2x.png */; };
+		966133F71613D97B0075F8CE /* mccc_logo_small.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 966133F61613D97B0075F8CE /* mccc_logo_small.jpg */; };
+		966133FA1613DC840075F8CE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966133F91613DC840075F8CE /* MediaPlayer.framework */; };
+		967725D51611231F00D76B78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967725D41611231F00D76B78 /* UIKit.framework */; };
+		967725D71611231F00D76B78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967725D61611231F00D76B78 /* Foundation.framework */; };
+		967725D91611231F00D76B78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967725D81611231F00D76B78 /* CoreGraphics.framework */; };
+		967725DF1611231F00D76B78 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 967725DD1611231F00D76B78 /* InfoPlist.strings */; };
+		967725E11611231F00D76B78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 967725E01611231F00D76B78 /* main.m */; };
+		967725E51611231F00D76B78 /* MWZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 967725E41611231F00D76B78 /* MWZAppDelegate.m */; };
+		967725E71611231F00D76B78 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 967725E61611231F00D76B78 /* Default.png */; };
+		967725E91611231F00D76B78 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 967725E81611231F00D76B78 /* Default@2x.png */; };
+		967725EB1611231F00D76B78 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 967725EA1611231F00D76B78 /* Default-568h@2x.png */; };
+		967725EE1611231F00D76B78 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 967725EC1611231F00D76B78 /* MainStoryboard.storyboard */; };
+		967725F11611231F00D76B78 /* MWZStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967725F01611231F00D76B78 /* MWZStreamViewController.m */; };
+		967725F81611231F00D76B78 /* MWZScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967725F71611231F00D76B78 /* MWZScheduleViewController.m */; };
+		96AE63451614B92A00469E0F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AE63441614B92A00469E0F /* AVFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		96548D461613A629008A0C10 /* 83-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar.png"; sourceTree = "<group>"; };
+		96548D471613A629008A0C10 /* 83-calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar@2x.png"; sourceTree = "<group>"; };
+		96548D4C1613A66A008A0C10 /* 194-note-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "194-note-2.png"; sourceTree = "<group>"; };
+		96548D4D1613A66A008A0C10 /* 194-note-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "194-note-2@2x.png"; sourceTree = "<group>"; };
+		966133F61613D97B0075F8CE /* mccc_logo_small.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mccc_logo_small.jpg; sourceTree = "<group>"; };
+		966133F91613DC840075F8CE /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		967725D01611231F00D76B78 /* MWZRadioStationStreamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWZRadioStationStreamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		967725D41611231F00D76B78 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		967725D61611231F00D76B78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		967725D81611231F00D76B78 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		967725DC1611231F00D76B78 /* MWZRadioStationStreamer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MWZRadioStationStreamer-Info.plist"; sourceTree = "<group>"; };
+		967725DE1611231F00D76B78 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		967725E01611231F00D76B78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		967725E21611231F00D76B78 /* MWZRadioStationStreamer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MWZRadioStationStreamer-Prefix.pch"; sourceTree = "<group>"; };
+		967725E31611231F00D76B78 /* MWZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWZAppDelegate.h; sourceTree = "<group>"; };
+		967725E41611231F00D76B78 /* MWZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MWZAppDelegate.m; sourceTree = "<group>"; };
+		967725E61611231F00D76B78 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		967725E81611231F00D76B78 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		967725EA1611231F00D76B78 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		967725ED1611231F00D76B78 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		967725EF1611231F00D76B78 /* MWZStreamViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWZStreamViewController.h; sourceTree = "<group>"; };
+		967725F01611231F00D76B78 /* MWZStreamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MWZStreamViewController.m; sourceTree = "<group>"; };
+		967725F61611231F00D76B78 /* MWZScheduleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWZScheduleViewController.h; sourceTree = "<group>"; };
+		967725F71611231F00D76B78 /* MWZScheduleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MWZScheduleViewController.m; sourceTree = "<group>"; };
+		96AE63441614B92A00469E0F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		967725CD1611231F00D76B78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96AE63451614B92A00469E0F /* AVFoundation.framework in Frameworks */,
+				966133FA1613DC840075F8CE /* MediaPlayer.framework in Frameworks */,
+				967725D51611231F00D76B78 /* UIKit.framework in Frameworks */,
+				967725D71611231F00D76B78 /* Foundation.framework in Frameworks */,
+				967725D91611231F00D76B78 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		96548D411613A46B008A0C10 /* Stream */ = {
+			isa = PBXGroup;
+			children = (
+				966133F61613D97B0075F8CE /* mccc_logo_small.jpg */,
+				96548D4C1613A66A008A0C10 /* 194-note-2.png */,
+				96548D4D1613A66A008A0C10 /* 194-note-2@2x.png */,
+				967725EF1611231F00D76B78 /* MWZStreamViewController.h */,
+				967725F01611231F00D76B78 /* MWZStreamViewController.m */,
+			);
+			name = Stream;
+			sourceTree = "<group>";
+		};
+		96548D431613A485008A0C10 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				96548D461613A629008A0C10 /* 83-calendar.png */,
+				96548D471613A629008A0C10 /* 83-calendar@2x.png */,
+				967725F61611231F00D76B78 /* MWZScheduleViewController.h */,
+				967725F71611231F00D76B78 /* MWZScheduleViewController.m */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
+		967725C51611231F00D76B78 = {
+			isa = PBXGroup;
+			children = (
+				967725DA1611231F00D76B78 /* MWZRadioStationStreamer */,
+				967725D31611231F00D76B78 /* Frameworks */,
+				967725D11611231F00D76B78 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		967725D11611231F00D76B78 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				967725D01611231F00D76B78 /* MWZRadioStationStreamer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		967725D31611231F00D76B78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96AE63441614B92A00469E0F /* AVFoundation.framework */,
+				966133F91613DC840075F8CE /* MediaPlayer.framework */,
+				967725D41611231F00D76B78 /* UIKit.framework */,
+				967725D61611231F00D76B78 /* Foundation.framework */,
+				967725D81611231F00D76B78 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		967725DA1611231F00D76B78 /* MWZRadioStationStreamer */ = {
+			isa = PBXGroup;
+			children = (
+				96548D431613A485008A0C10 /* Schedule */,
+				96548D411613A46B008A0C10 /* Stream */,
+				967725E31611231F00D76B78 /* MWZAppDelegate.h */,
+				967725E41611231F00D76B78 /* MWZAppDelegate.m */,
+				967725EC1611231F00D76B78 /* MainStoryboard.storyboard */,
+				967725DB1611231F00D76B78 /* Supporting Files */,
+			);
+			path = MWZRadioStationStreamer;
+			sourceTree = "<group>";
+		};
+		967725DB1611231F00D76B78 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				967725DC1611231F00D76B78 /* MWZRadioStationStreamer-Info.plist */,
+				967725DD1611231F00D76B78 /* InfoPlist.strings */,
+				967725E01611231F00D76B78 /* main.m */,
+				967725E21611231F00D76B78 /* MWZRadioStationStreamer-Prefix.pch */,
+				967725E61611231F00D76B78 /* Default.png */,
+				967725E81611231F00D76B78 /* Default@2x.png */,
+				967725EA1611231F00D76B78 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		967725CF1611231F00D76B78 /* MWZRadioStationStreamer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 967725FF1611231F00D76B78 /* Build configuration list for PBXNativeTarget "MWZRadioStationStreamer" */;
+			buildPhases = (
+				967725CC1611231F00D76B78 /* Sources */,
+				967725CD1611231F00D76B78 /* Frameworks */,
+				967725CE1611231F00D76B78 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MWZRadioStationStreamer;
+			productName = MWZRadioStationStreamer;
+			productReference = 967725D01611231F00D76B78 /* MWZRadioStationStreamer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		967725C71611231F00D76B78 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MWZ;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Jason Wertz";
+			};
+			buildConfigurationList = 967725CA1611231F00D76B78 /* Build configuration list for PBXProject "MWZRadioStationStreamer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 967725C51611231F00D76B78;
+			productRefGroup = 967725D11611231F00D76B78 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				967725CF1611231F00D76B78 /* MWZRadioStationStreamer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		967725CE1611231F00D76B78 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				967725DF1611231F00D76B78 /* InfoPlist.strings in Resources */,
+				967725E71611231F00D76B78 /* Default.png in Resources */,
+				967725E91611231F00D76B78 /* Default@2x.png in Resources */,
+				967725EB1611231F00D76B78 /* Default-568h@2x.png in Resources */,
+				967725EE1611231F00D76B78 /* MainStoryboard.storyboard in Resources */,
+				96548D4A1613A629008A0C10 /* 83-calendar.png in Resources */,
+				96548D4B1613A629008A0C10 /* 83-calendar@2x.png in Resources */,
+				96548D4E1613A66A008A0C10 /* 194-note-2.png in Resources */,
+				96548D4F1613A66A008A0C10 /* 194-note-2@2x.png in Resources */,
+				966133F71613D97B0075F8CE /* mccc_logo_small.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		967725CC1611231F00D76B78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				967725E11611231F00D76B78 /* main.m in Sources */,
+				967725E51611231F00D76B78 /* MWZAppDelegate.m in Sources */,
+				967725F11611231F00D76B78 /* MWZStreamViewController.m in Sources */,
+				967725F81611231F00D76B78 /* MWZScheduleViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		967725DD1611231F00D76B78 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				967725DE1611231F00D76B78 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		967725EC1611231F00D76B78 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				967725ED1611231F00D76B78 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		967725FD1611231F00D76B78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		967725FE1611231F00D76B78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		967726001611231F00D76B78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MWZRadioStationStreamer/MWZRadioStationStreamer-Prefix.pch";
+				INFOPLIST_FILE = "MWZRadioStationStreamer/MWZRadioStationStreamer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		967726011611231F00D76B78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MWZRadioStationStreamer/MWZRadioStationStreamer-Prefix.pch";
+				INFOPLIST_FILE = "MWZRadioStationStreamer/MWZRadioStationStreamer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		967725CA1611231F00D76B78 /* Build configuration list for PBXProject "MWZRadioStationStreamer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				967725FD1611231F00D76B78 /* Debug */,
+				967725FE1611231F00D76B78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		967725FF1611231F00D76B78 /* Build configuration list for PBXNativeTarget "MWZRadioStationStreamer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				967726001611231F00D76B78 /* Debug */,
+				967726011611231F00D76B78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 967725C71611231F00D76B78 /* Project object */;
+}
