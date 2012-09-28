@@ -1,0 +1,21 @@
+
+/* Class = "IBUIViewController"; title = "First"; ObjectID = "2"; */
+"2.title" = "First";
+
+/* Class = "IBUIViewController"; title = "Second"; ObjectID = "3"; */
+"3.title" = "Second";
+
+/* Class = "IBUITabBarItem"; title = "Schedule"; ObjectID = "6"; */
+"6.title" = "Programar";
+
+/* Class = "IBUITabBarItem"; title = "Listen"; ObjectID = "7"; */
+"7.title" = "Escuchar";
+
+/* Class = "IBUINavigationItem"; title = "Montco Radio"; ObjectID = "3vq-Xq-ho9"; */
+"3vq-Xq-ho9.title" = "Montco Radio";
+
+/* Class = "IBUINavigationItem"; title = "Schedule"; ObjectID = "tr0-En-dqy"; */
+"tr0-En-dqy.title" = "Programar";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "uZF-8O-ZgH"; */
+"uZF-8O-ZgH.text" = "Label";

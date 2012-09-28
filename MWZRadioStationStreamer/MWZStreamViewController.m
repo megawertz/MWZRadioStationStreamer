@@ -28,12 +28,13 @@
 /// Standard error pop-up for streams
 -(void)showStreamError;
 
+/// Get stream metadata
+-(void)getMetadata;
 @end
 
 @implementation MWZStreamViewController
 
 #pragma mark - View Life Cycle
-
 
 - (void)viewDidLoad
 {
@@ -45,7 +46,7 @@
     [super viewDidAppear:animated];
     
     // Set the interface items to go away after a short delay
-    [self performSelector:@selector(animateInterfaceElementsOnOffScreen) withObject:nil afterDelay:INTERFACE_DISAPPEAR_DELAY];
+    // [self performSelector:@selector(animateInterfaceElementsOnOffScreen) withObject:nil afterDelay:INTERFACE_DISAPPEAR_DELAY];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,13 +55,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Metadata Access & Processing
+
+// Currently getting this on the main thread for testing.
+// TODO: Use loadValuesAsynchronouslyForKeys:completionHandler: in AVMetadataItem
+// http://stackoverflow.com/questions/7707513/getting-metadata-from-an-audio-stream
+-(void)getMetadata {
+
+    AVPlayerItem *playerItem = [self.player currentItem];
+    NSArray *metadataList = [playerItem.asset commonMetadata];
+    
+    for (AVMetadataItem *metaItem in metadataList) {
+        DLog(@"key: %@, value: %@",[metaItem commonKey],[metaItem value]);
+    }
+
+}
+
 #pragma mark - Stream Control Methods
 
 -(void)showStreamError {
     
     // TODO: Internationalize this text
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Stream Error"
-                                                    message:@"There was a problem with the stream. Please try pressing play or refresh to resolve this issue."
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"StreamErrorWindowTitle", @"Title for stream error alert view.")
+                                                    message:NSLocalizedString(@"StreamErrorWindowMessage",@"Messeage for stream error alert view.")
                                                    delegate:nil
                                           cancelButtonTitle:@"Dismiss"
                                           otherButtonTitles:nil];
@@ -131,29 +149,39 @@
     if([keyPath isEqualToString:@"rate"]) {
         
         if([self.player rate]) {
-            NSLog(@"We have a rate, this is playing.");
+            DLog(@"We have a rate, this is playing. Rate: %f",[self.player rate]);
             [self showPauseButton];
         }
         else {
-            NSLog(@"No rate, not playing.");
+            DLog(@"No rate, not playing.");
             [self showPlayButton];
         }
         
     }
     else if([keyPath isEqualToString:@"status"]) {
         
-        switch ([self.player status]) {
+        // Is it enough to look at just the underlying item's status?
+        switch ([self.player.currentItem status]) {
             case AVPlayerStatusReadyToPlay:
-                NSLog(@"Ready to play");
-                [self.player play];
+                DLog(@"Player's current item is ready to play");
+                if([self.player status] == AVPlayerStatusReadyToPlay) {
+                    DLog(@"Player and current item are fine. Playing.");
+                    [self.player play];
+                    [self getMetadata];
+                }
+                else {
+                    DLog(@"Player's currentItem is fine but player failed. Remove observers and set to nil.");
+                    [self showStreamError];
+                    [self resetStreamPlayer];
+                }
                 break;
             case AVPlayerStatusFailed:
-                NSLog(@"Player failed. Remove observers and set to nil.");
+                DLog(@"Player's Item failed. Remove observers and set to nil.");
                 [self showStreamError];
                 [self resetStreamPlayer];
                 break;
             case AVPlayerStatusUnknown:
-                NSLog(@"Unknow player status");
+                DLog(@"Unknow player's item status");
                 [self showStreamError];
                 [self resetStreamPlayer];
                 break;
