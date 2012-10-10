@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MessageUI/MessageUI.h>
+#import <Social/Social.h>
 
-@interface MWZStreamViewController : UIViewController
+@interface MWZStreamViewController : UIViewController <UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
 /// Outlets to allow the interface elements to animate on/off screen
 @property (weak, nonatomic) IBOutlet UIView *nowPlayingView;
@@ -26,5 +28,8 @@
 /// Toggle the stream on and off
 -(IBAction)toggleStream;
 -(IBAction)userStreamReset;
+
+/// Display UIActionSheet for contacting the station
+-(IBAction)contactStation;
 
 @end

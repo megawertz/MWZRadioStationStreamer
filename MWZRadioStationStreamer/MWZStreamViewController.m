@@ -7,9 +7,14 @@
 //
 
 #import "MWZStreamViewController.h"
+#import "UIViewController+ErrorMessage.h"
 
 #define INTERFACE_DISAPPEAR_DELAY   5
 #define STREAM_URL                  @"http://stream.mc3.edu:8000/stream.m3u"
+#define STATION_PHONE_NUMBER        @"215-619-7366"
+#define STATION_EMAIL               @"jwertz@mc3.edu"
+#define STATION_TWITTER_ACCOUNT     @"@montcoradio"
+#define STATION_TWITTER_HASHTAG     @"#request"
 
 @interface MWZStreamViewController ()
 
@@ -30,6 +35,16 @@
 
 /// Get stream metadata
 -(void)getMetadata;
+
+/// Make a phone request
+-(void)phoneRequest;
+
+/// Make email request
+-(void)emailRequest;
+
+/// Make twitter request
+-(void)tweetRequest;
+
 @end
 
 @implementation MWZStreamViewController
@@ -55,17 +70,125 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UIActionSheet Methods
+
+-(IBAction)contactStation {
+    // TODO: Consider not showing the call button to devices that can't make calls
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:
+                            NSLocalizedString(@"RequestMenuTitle",@"Make a Request!")
+                                                       delegate:self
+                                              cancelButtonTitle:
+                            NSLocalizedString(@"RequestMenuButton_Cancel",@"Cancel")
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:
+                            NSLocalizedString(@"RequestMenuButton_Twitter",@"Active word for Twitter service...i.e. Tweet"),
+                            NSLocalizedString(@"RequestMenuButton_Email",@"Email"),
+                            NSLocalizedString(@"RequestMenuButton_Call",@"Call"), nil];
+    
+    [sheet showFromTabBar:self.tabBarController.tabBar];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    switch (buttonIndex) {
+        case 0:
+            [self tweetRequest];
+            break;
+        case 1:
+            [self emailRequest];
+            break;
+        case 2:
+            [self phoneRequest];
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)emailRequest
+{
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        
+        MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+        controller.mailComposeDelegate = self;
+        [controller setToRecipients:[NSArray arrayWithObject:STATION_EMAIL]];
+        [controller setSubject:NSLocalizedString(@"RequestEmailSubject", @"Subject of DJ Request Emails")];
+        [controller setMessageBody:@"" isHTML:NO];
+        
+        [self presentViewController:controller animated:YES completion:nil];
+        
+    }
+    else
+    {
+        [self errorWithTitle:NSLocalizedString(@"ErrorDialogTitle_Standard",@"Error.")
+                     message:NSLocalizedString(@"ErrorDialogMessage_EmailUnavialable",@"Device cannot send email.")
+             andCancelButton:NSLocalizedString(@"ErrorDialogCancelButton_Standard",@"Dismiss.")];
+    }
+    
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+	if (result == MFMailComposeResultSent) {
+        DLog(@"Mail sent.");
+    }
+    else {
+        DLog(@"Error sending email.");
+    }
+    
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)phoneRequest
+{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",STATION_PHONE_NUMBER]];
+    if([[UIApplication sharedApplication] canOpenURL:url])
+        [[UIApplication sharedApplication] openURL:url];
+    else {
+        //error
+        DLog(@"Error, device cannot make phone calls.");
+        [self errorWithTitle:NSLocalizedString(@"ErrorDialogTitle_Standard",@"Error.")
+                     message:NSLocalizedString(@"ErrorDialogMessage_PhoneUnavialable",@"Device cannot make phone calls.")
+             andCancelButton:NSLocalizedString(@"ErrorDialogCancelButton_Standard",@"Dismiss.")];
+    }
+}
+
+-(void)tweetRequest
+{
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        SLComposeViewController *twitterViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        NSString *tweetFrameworkString = [NSString stringWithFormat:@"%@ %@ ",STATION_TWITTER_ACCOUNT, STATION_TWITTER_HASHTAG];
+        [twitterViewController setInitialText:tweetFrameworkString];
+        // Tweet sheet should dismiss itself? Seems to.
+        [self presentViewController:twitterViewController animated:YES completion:nil];
+    }
+    else {
+        //error
+        DLog(@"Error, device cannot tweet.");
+        [self errorWithTitle:NSLocalizedString(@"ErrorDialogTitle_Standard",@"Error.")
+                     message:NSLocalizedString(@"ErrorDialogMessage_TwitterUnavialable",@"Device cannot make phone calls.")
+             andCancelButton:NSLocalizedString(@"ErrorDialogCancelButton_Standard",@"Dismiss.")];
+
+    }
+}
+
+
 #pragma mark - Metadata Access & Processing
 
 // Currently getting this on the main thread for testing.
 // TODO: Use loadValuesAsynchronouslyForKeys:completionHandler: in AVMetadataItem
 // http://stackoverflow.com/questions/7707513/getting-metadata-from-an-audio-stream
+
 -(void)getMetadata {
 
     AVPlayerItem *playerItem = [self.player currentItem];
     NSArray *metadataList = [playerItem.asset commonMetadata];
     
+    DLog(@"Meta Data Count: %d",[metadataList count]);
+    
     for (AVMetadataItem *metaItem in metadataList) {
+        
         DLog(@"key: %@, value: %@",[metaItem commonKey],[metaItem value]);
     }
 
@@ -75,14 +198,9 @@
 
 -(void)showStreamError {
     
-    // TODO: Internationalize this text
-
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"StreamErrorWindowTitle", @"Title for stream error alert view.")
-                                                    message:NSLocalizedString(@"StreamErrorWindowMessage",@"Messeage for stream error alert view.")
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Dismiss"
-                                          otherButtonTitles:nil];
-    [alert show];
+    [self errorWithTitle:NSLocalizedString(@"StreamErrorWindowTitle", @"Title for stream error alert view.")
+                 message:NSLocalizedString(@"StreamErrorWindowMessage", @"Message for stream error alert view.")
+         andCancelButton:NSLocalizedString(@"ErrorDialogCancelButton_Standard",@"Dismiss.")];
 
 }
 
@@ -160,20 +278,13 @@
     }
     else if([keyPath isEqualToString:@"status"]) {
         
-        // Is it enough to look at just the underlying item's status?
-        switch ([self.player.currentItem status]) {
+        // TODO: Do I need to look at the underlying item's status?
+        // Tried this and it caused problems.
+        switch ([self.player status]) {
             case AVPlayerStatusReadyToPlay:
                 DLog(@"Player's current item is ready to play");
-                if([self.player status] == AVPlayerStatusReadyToPlay) {
-                    DLog(@"Player and current item are fine. Playing.");
-                    [self.player play];
-                    [self getMetadata];
-                }
-                else {
-                    DLog(@"Player's currentItem is fine but player failed. Remove observers and set to nil.");
-                    [self showStreamError];
-                    [self resetStreamPlayer];
-                }
+                [self.player play];
+                // Schedule meta-data here.
                 break;
             case AVPlayerStatusFailed:
                 DLog(@"Player's Item failed. Remove observers and set to nil.");

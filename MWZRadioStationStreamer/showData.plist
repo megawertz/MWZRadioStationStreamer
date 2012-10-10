@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>showData</key>
+	<array>
+		<dict>
+			<key>Day</key>
+			<string>Monday</string>
+			<key>Shows</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>Day</key>
+			<string>Tuesday</string>
+			<key>Shows</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>Day</key>
+			<string>Wednesday</string>
+			<key>Shows</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>Day</key>
+			<string>Thursday</string>
+			<key>Shows</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>Day</key>
+			<string>Friday</string>
+			<key>Shows</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>Day</key>
+			<string>Saturday</string>
+			<key>Shows</key>
+			<array/>
+		</dict>
+		<dict>
+			<key>Day</key>
+			<string>Sunday</string>
+			<key>Shows</key>
+			<array/>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>Press To Update →</string>
+	<key>version</key>
+	<integer>-1</integer>
+</dict>
+</plist>

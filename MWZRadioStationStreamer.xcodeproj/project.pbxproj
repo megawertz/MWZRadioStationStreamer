@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		963D0A681625E68400F24931 /* MWZAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 963D0A671625E68400F24931 /* MWZAboutViewController.m */; };
+		963D0A6E1625E8A200F24931 /* showData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 963D0A6D1625E8A200F24931 /* showData.plist */; };
+		963D0A751625EAE400F24931 /* 59-info.png in Resources */ = {isa = PBXBuildFile; fileRef = 963D0A731625EAE400F24931 /* 59-info.png */; };
+		963D0A761625EAE400F24931 /* 59-info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 963D0A741625EAE400F24931 /* 59-info@2x.png */; };
+		963D0A771625EB8600F24931 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9690F46D161629E700C04E0F /* MainStoryboard.storyboard */; };
+		963D0A7A1625F5EC00F24931 /* UIViewController+ErrorMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 963D0A791625F5EC00F24931 /* UIViewController+ErrorMessage.m */; };
+		963D0A7C1625FA3500F24931 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963D0A7B1625FA3400F24931 /* MessageUI.framework */; };
+		963D0A7E1625FCC500F24931 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963D0A7D1625FCC500F24931 /* Social.framework */; };
 		96548D4A1613A629008A0C10 /* 83-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 96548D461613A629008A0C10 /* 83-calendar.png */; };
 		96548D4B1613A629008A0C10 /* 83-calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96548D471613A629008A0C10 /* 83-calendar@2x.png */; };
 		96548D4E1613A66A008A0C10 /* 194-note-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 96548D4C1613A66A008A0C10 /* 194-note-2.png */; };
@@ -24,12 +32,20 @@
 		967725F11611231F00D76B78 /* MWZStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967725F01611231F00D76B78 /* MWZStreamViewController.m */; };
 		967725F81611231F00D76B78 /* MWZScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967725F71611231F00D76B78 /* MWZScheduleViewController.m */; };
 		9690F45E1616265500C04E0F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9690F45C1616265400C04E0F /* InfoPlist.strings */; };
-		9690F46B161629E700C04E0F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9690F46D161629E700C04E0F /* MainStoryboard.storyboard */; };
 		9690F47D1616341A00C04E0F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9690F47B1616341A00C04E0F /* Localizable.strings */; };
 		96AE63451614B92A00469E0F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AE63441614B92A00469E0F /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		963D0A661625E68400F24931 /* MWZAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWZAboutViewController.h; sourceTree = "<group>"; };
+		963D0A671625E68400F24931 /* MWZAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWZAboutViewController.m; sourceTree = "<group>"; };
+		963D0A6D1625E8A200F24931 /* showData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = showData.plist; sourceTree = "<group>"; };
+		963D0A731625EAE400F24931 /* 59-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "59-info.png"; sourceTree = "<group>"; };
+		963D0A741625EAE400F24931 /* 59-info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "59-info@2x.png"; sourceTree = "<group>"; };
+		963D0A781625F5EC00F24931 /* UIViewController+ErrorMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ErrorMessage.h"; sourceTree = "<group>"; };
+		963D0A791625F5EC00F24931 /* UIViewController+ErrorMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ErrorMessage.m"; sourceTree = "<group>"; };
+		963D0A7B1625FA3400F24931 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		963D0A7D1625FCC500F24931 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		96548D461613A629008A0C10 /* 83-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar.png"; sourceTree = "<group>"; };
 		96548D471613A629008A0C10 /* 83-calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar@2x.png"; sourceTree = "<group>"; };
 		96548D4C1613A66A008A0C10 /* 194-note-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "194-note-2.png"; sourceTree = "<group>"; };
@@ -66,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				963D0A7E1625FCC500F24931 /* Social.framework in Frameworks */,
+				963D0A7C1625FA3500F24931 /* MessageUI.framework in Frameworks */,
 				96AE63451614B92A00469E0F /* AVFoundation.framework in Frameworks */,
 				966133FA1613DC840075F8CE /* MediaPlayer.framework in Frameworks */,
 				967725D51611231F00D76B78 /* UIKit.framework in Frameworks */,
@@ -77,6 +95,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		963D0A5F1625E4E200F24931 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				963D0A731625EAE400F24931 /* 59-info.png */,
+				963D0A741625EAE400F24931 /* 59-info@2x.png */,
+				963D0A661625E68400F24931 /* MWZAboutViewController.h */,
+				963D0A671625E68400F24931 /* MWZAboutViewController.m */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
 		96548D411613A46B008A0C10 /* Stream */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +121,7 @@
 		96548D431613A485008A0C10 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				963D0A6D1625E8A200F24931 /* showData.plist */,
 				96548D461613A629008A0C10 /* 83-calendar.png */,
 				96548D471613A629008A0C10 /* 83-calendar@2x.png */,
 				967725F61611231F00D76B78 /* MWZScheduleViewController.h */,
@@ -120,6 +150,8 @@
 		967725D31611231F00D76B78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				963D0A7D1625FCC500F24931 /* Social.framework */,
+				963D0A7B1625FA3400F24931 /* MessageUI.framework */,
 				96AE63441614B92A00469E0F /* AVFoundation.framework */,
 				966133F91613DC840075F8CE /* MediaPlayer.framework */,
 				967725D41611231F00D76B78 /* UIKit.framework */,
@@ -132,6 +164,7 @@
 		967725DA1611231F00D76B78 /* MWZRadioStationStreamer */ = {
 			isa = PBXGroup;
 			children = (
+				963D0A5F1625E4E200F24931 /* About */,
 				96548D431613A485008A0C10 /* Schedule */,
 				96548D411613A46B008A0C10 /* Stream */,
 				967725E31611231F00D76B78 /* MWZAppDelegate.h */,
@@ -153,6 +186,8 @@
 				967725E61611231F00D76B78 /* Default.png */,
 				967725E81611231F00D76B78 /* Default@2x.png */,
 				967725EA1611231F00D76B78 /* Default-568h@2x.png */,
+				963D0A781625F5EC00F24931 /* UIViewController+ErrorMessage.h */,
+				963D0A791625F5EC00F24931 /* UIViewController+ErrorMessage.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -211,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				963D0A771625EB8600F24931 /* MainStoryboard.storyboard in Resources */,
 				967725E71611231F00D76B78 /* Default.png in Resources */,
 				967725E91611231F00D76B78 /* Default@2x.png in Resources */,
 				967725EB1611231F00D76B78 /* Default-568h@2x.png in Resources */,
@@ -220,8 +256,10 @@
 				96548D4F1613A66A008A0C10 /* 194-note-2@2x.png in Resources */,
 				966133F71613D97B0075F8CE /* mccc_logo_small.jpg in Resources */,
 				9690F45E1616265500C04E0F /* InfoPlist.strings in Resources */,
-				9690F46B161629E700C04E0F /* MainStoryboard.storyboard in Resources */,
 				9690F47D1616341A00C04E0F /* Localizable.strings in Resources */,
+				963D0A6E1625E8A200F24931 /* showData.plist in Resources */,
+				963D0A751625EAE400F24931 /* 59-info.png in Resources */,
+				963D0A761625EAE400F24931 /* 59-info@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +274,8 @@
 				967725E51611231F00D76B78 /* MWZAppDelegate.m in Sources */,
 				967725F11611231F00D76B78 /* MWZStreamViewController.m in Sources */,
 				967725F81611231F00D76B78 /* MWZScheduleViewController.m in Sources */,
+				963D0A681625E68400F24931 /* MWZAboutViewController.m in Sources */,
+				963D0A7A1625F5EC00F24931 /* UIViewController+ErrorMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
