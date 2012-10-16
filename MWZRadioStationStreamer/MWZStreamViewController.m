@@ -51,17 +51,36 @@
 
 #pragma mark - View Life Cycle
 
-- (void)viewDidLoad
-{
+-(BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+-(void)viewDidLoad {
     [super viewDidLoad];
-    self.interfaceElementsOnScreen = YES;
+    [self.nowPlayingView setHidden:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    // Everytime this appears it is putting the controls back on screen
+    // Make sure we set that here.
+    self.interfaceElementsOnScreen = YES;
+    
+    // Start getting remote control events
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
+    
     // Set the interface items to go away after a short delay
     // [self performSelector:@selector(animateInterfaceElementsOnOffScreen) withObject:nil afterDelay:INTERFACE_DISAPPEAR_DELAY];
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    
+    // TODO: If we are playing, don't deregister from getting thesen notifications
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    [self resignFirstResponder];
+    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -185,8 +204,16 @@
     AVPlayerItem *playerItem = [self.player currentItem];
     NSArray *metadataList = [playerItem.asset commonMetadata];
     
-    DLog(@"Meta Data Count: %d",[metadataList count]);
     
+    if([metadataList count] > 0) {
+        // TODO: Animate this in. Don't just let it appear.
+        [self.nowPlayingView setHidden:NO];
+        // If there's no metadata remove the now playing banner from the view
+        [self.nowPlayingLabel setText:@"Metadata Here"];
+        
+    }
+    
+    // Debug of metadata to see what I'm getting.
     for (AVMetadataItem *metaItem in metadataList) {
         
         DLog(@"key: %@, value: %@",[metaItem commonKey],[metaItem value]);
@@ -195,6 +222,20 @@
 }
 
 #pragma mark - Stream Control Methods
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent {
+    DLog(@"Remote Event Received!");
+    if (receivedEvent.type == UIEventTypeRemoteControl) {
+        switch (receivedEvent.subtype) {
+            case UIEventSubtypeRemoteControlTogglePlayPause:
+                [self toggleStream];
+                break;
+            default:
+                break;
+        }
+    }
+}
+
 
 -(void)showStreamError {
     

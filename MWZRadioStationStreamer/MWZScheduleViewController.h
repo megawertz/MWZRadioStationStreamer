@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MWZScheduleViewController : UIViewController
+@interface MWZScheduleViewController : UIViewController <UITableViewDataSource, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *showData;
+@property int showDataVersionNumber;
+
+@property (weak, nonatomic) IBOutlet UINavigationItem *scheduleTitle;
+
+-(IBAction)updateSchedule;
 
 @end

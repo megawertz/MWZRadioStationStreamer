@@ -26,7 +26,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	// TODO: Internationalize this using template-replace and Localize files.
+    NSString *file2Load = [[NSBundle mainBundle] pathForResource:@"About" ofType:@"html"];
+    NSURL *file2LoadURL = [NSURL fileURLWithPath:file2Load];
+    NSURLRequest *r = [NSURLRequest requestWithURL:file2LoadURL];
+    [self.aboutWebView loadRequest:r];
 }
 
 - (void)didReceiveMemoryWarning

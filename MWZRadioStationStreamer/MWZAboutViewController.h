@@ -10,4 +10,6 @@
 
 @interface MWZAboutViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIWebView *aboutWebView;
+
 @end

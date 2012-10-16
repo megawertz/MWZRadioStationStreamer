@@ -108,6 +108,7 @@
                     <connections>
                         <outlet property="controlToolbar" destination="h54-sd-59O" id="cSY-QP-Qfs"/>
                         <outlet property="mpVolumeView" destination="T3H-ea-upX" id="OG6-ca-2hP"/>
+                        <outlet property="nowPlayingLabel" destination="uZF-8O-ZgH" id="oND-xu-tez"/>
                         <outlet property="nowPlayingView" destination="raF-tU-0sA" id="Pef-i6-E1W"/>
                         <outlet property="toggleStreamButton" destination="cAd-Oh-Yyh" id="HOO-na-9kI"/>
                     </connections>
@@ -150,6 +151,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="59-info.png" id="w2w-uV-Ks9"/>
+                    <connections>
+                        <outlet property="aboutWebView" destination="6yu-Ic-neo" id="6SG-LF-OKR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NoT-3i-08Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -165,11 +169,19 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NgO-OB-njg">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="3" id="Kxq-XT-Q5M"/>
+                                    <outlet property="delegate" destination="3" id="9ao-pb-t69"/>
+                                </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="MuX-pe-mbu">
                                 <items>
                                     <navigationItem title="Schedule" id="tr0-En-dqy">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="taY-sS-EAD"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="taY-sS-EAD">
+                                            <connections>
+                                                <action selector="updateSchedule" destination="3" id="vp9-0e-qJ6"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -187,6 +199,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Live Schedule" image="83-calendar.png" id="6"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="scheduleTitle" destination="tr0-En-dqy" id="zTu-sR-pzX"/>
+                        <outlet property="tableView" destination="NgO-OB-njg" id="gNj-kZ-XEH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
@@ -218,33 +234,6 @@
         <image name="83-calendar.png" width="23" height="25"/>
         <image name="mccc_logo_small.jpg" width="300" height="177"/>
     </resources>
-    <classes>
-        <class className="MPVolumeView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MPVolumeView.h"/>
-        </class>
-        <class className="MWZAboutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MWZAboutViewController.h"/>
-        </class>
-        <class className="MWZScheduleViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MWZScheduleViewController.h"/>
-        </class>
-        <class className="MWZStreamViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MWZStreamViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="contactStation"/>
-                <relationship kind="action" name="toggleInterfaceElements"/>
-                <relationship kind="action" name="toggleStream"/>
-                <relationship kind="action" name="userStreamReset"/>
-                <relationship kind="outlet" name="controlToolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="mpVolumeView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="nowPlayingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="toggleStreamButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -15,6 +15,8 @@
 		963D0A7A1625F5EC00F24931 /* UIViewController+ErrorMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 963D0A791625F5EC00F24931 /* UIViewController+ErrorMessage.m */; };
 		963D0A7C1625FA3500F24931 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963D0A7B1625FA3400F24931 /* MessageUI.framework */; };
 		963D0A7E1625FCC500F24931 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963D0A7D1625FCC500F24931 /* Social.framework */; };
+		963D0A8016260EC400F24931 /* About.html in Resources */ = {isa = PBXBuildFile; fileRef = 963D0A7F16260EC400F24931 /* About.html */; };
+		9651B11E16265A0500FD7DB9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9651B11D16265A0500FD7DB9 /* AudioToolbox.framework */; };
 		96548D4A1613A629008A0C10 /* 83-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 96548D461613A629008A0C10 /* 83-calendar.png */; };
 		96548D4B1613A629008A0C10 /* 83-calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96548D471613A629008A0C10 /* 83-calendar@2x.png */; };
 		96548D4E1613A66A008A0C10 /* 194-note-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 96548D4C1613A66A008A0C10 /* 194-note-2.png */; };
@@ -46,6 +48,8 @@
 		963D0A791625F5EC00F24931 /* UIViewController+ErrorMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ErrorMessage.m"; sourceTree = "<group>"; };
 		963D0A7B1625FA3400F24931 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		963D0A7D1625FCC500F24931 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		963D0A7F16260EC400F24931 /* About.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = About.html; sourceTree = "<group>"; };
+		9651B11D16265A0500FD7DB9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		96548D461613A629008A0C10 /* 83-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar.png"; sourceTree = "<group>"; };
 		96548D471613A629008A0C10 /* 83-calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar@2x.png"; sourceTree = "<group>"; };
 		96548D4C1613A66A008A0C10 /* 194-note-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "194-note-2.png"; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9651B11E16265A0500FD7DB9 /* AudioToolbox.framework in Frameworks */,
 				963D0A7E1625FCC500F24931 /* Social.framework in Frameworks */,
 				963D0A7C1625FA3500F24931 /* MessageUI.framework in Frameworks */,
 				96AE63451614B92A00469E0F /* AVFoundation.framework in Frameworks */,
@@ -102,6 +107,7 @@
 				963D0A741625EAE400F24931 /* 59-info@2x.png */,
 				963D0A661625E68400F24931 /* MWZAboutViewController.h */,
 				963D0A671625E68400F24931 /* MWZAboutViewController.m */,
+				963D0A7F16260EC400F24931 /* About.html */,
 			);
 			name = About;
 			sourceTree = "<group>";
@@ -150,6 +156,7 @@
 		967725D31611231F00D76B78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9651B11D16265A0500FD7DB9 /* AudioToolbox.framework */,
 				963D0A7D1625FCC500F24931 /* Social.framework */,
 				963D0A7B1625FA3400F24931 /* MessageUI.framework */,
 				96AE63441614B92A00469E0F /* AVFoundation.framework */,
@@ -260,6 +267,7 @@
 				963D0A6E1625E8A200F24931 /* showData.plist in Resources */,
 				963D0A751625EAE400F24931 /* 59-info.png in Resources */,
 				963D0A761625EAE400F24931 /* 59-info@2x.png in Resources */,
+				963D0A8016260EC400F24931 /* About.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

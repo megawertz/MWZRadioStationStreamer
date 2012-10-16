@@ -2,13 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>showData</key>
+	<key>ScheduleShowData</key>
 	<array>
 		<dict>
 			<key>Day</key>
 			<string>Monday</string>
 			<key>Shows</key>
-			<array/>
+			<array>
+				<dict>
+					<key>Title</key>
+					<string>This American Life</string>
+					<key>Description</key>
+					<string>Awesome stuff from Ira Glass.</string>
+					<key>StartTime</key>
+					<date>2012-10-16T17:00:00Z</date>
+					<key>EndTime</key>
+					<date>2012-10-16T18:00:00Z</date>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>Day</key>
@@ -47,9 +58,9 @@
 			<array/>
 		</dict>
 	</array>
-	<key>title</key>
+	<key>ScheduleTitle</key>
 	<string>Press To Update →</string>
-	<key>version</key>
+	<key>ScheduleVersion</key>
 	<integer>-1</integer>
 </dict>
 </plist>
