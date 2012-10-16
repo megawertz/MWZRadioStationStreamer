@@ -57,6 +57,13 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Setup the activity indicator in the navbar manually
+    UIActivityIndicatorView *tmpAIV = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithCustomView:tmpAIV];
+    [self setSpinner:tmpAIV];
+    [self.navItem setRightBarButtonItem:button];
+
     [self.nowPlayingView setHidden:YES];
 }
 
@@ -92,7 +99,7 @@
 #pragma mark - UIActionSheet Methods
 
 -(IBAction)contactStation {
-    // TODO: Consider not showing the call button to devices that can't make calls
+
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:
                             NSLocalizedString(@"RequestMenuTitle",@"Make a Request!")
                                                        delegate:self
@@ -101,9 +108,12 @@
                                          destructiveButtonTitle:nil
                                               otherButtonTitles:
                             NSLocalizedString(@"RequestMenuButton_Twitter",@"Active word for Twitter service...i.e. Tweet"),
-                            NSLocalizedString(@"RequestMenuButton_Email",@"Email"),
-                            NSLocalizedString(@"RequestMenuButton_Call",@"Call"), nil];
+                            NSLocalizedString(@"RequestMenuButton_Email",@"Email"), nil];
     
+    // Don't show the call button to devices that can't make calls
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]])
+        [sheet addButtonWithTitle:NSLocalizedString(@"RequestMenuButton_Call",@"Call")];
+   
     [sheet showFromTabBar:self.tabBarController.tabBar];
 }
 
@@ -117,7 +127,9 @@
             [self emailRequest];
             break;
         case 2:
-            [self phoneRequest];
+            // No phone button if the device can't make calls
+            if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]])
+                [self phoneRequest];
             break;
         default:
             break;
@@ -286,6 +298,7 @@
         // Register for observations
         [self.player addObserver:self forKeyPath:@"rate" options:0 context:nil];
         [self.player addObserver:self forKeyPath:@"status" options:0 context:nil];
+        [self.player.currentItem addObserver:self forKeyPath:@"playbackLikelyToKeepUp" options:0 context:nil];
         // Just return here, playing is handled by the observer
         // This is so we know we have a valid stream
         return;
@@ -305,15 +318,28 @@
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if(object == [self.player currentItem])
+    {
+        DLog(@"KVO message from the currentItem");
+        if([self.player.currentItem isPlaybackLikelyToKeepUp])
+            [self.spinner stopAnimating];
+        else
+            [self.spinner startAnimating];
+
+    }
+    
     if([keyPath isEqualToString:@"rate"]) {
         
         if([self.player rate]) {
             DLog(@"We have a rate, this is playing. Rate: %f",[self.player rate]);
             [self showPauseButton];
+            if(![self.player.currentItem isPlaybackLikelyToKeepUp])
+                [self.spinner startAnimating];
         }
         else {
             DLog(@"No rate, not playing.");
             [self showPlayButton];
+            [self.spinner stopAnimating];
         }
         
     }
@@ -323,17 +349,17 @@
         // Tried this and it caused problems.
         switch ([self.player status]) {
             case AVPlayerStatusReadyToPlay:
-                DLog(@"Player's current item is ready to play");
+                DLog(@"Player is ready to play");
                 [self.player play];
                 // Schedule meta-data here.
                 break;
             case AVPlayerStatusFailed:
-                DLog(@"Player's Item failed. Remove observers and set to nil.");
+                DLog(@"Player failed. Remove observers and set to nil.");
                 [self showStreamError];
                 [self resetStreamPlayer];
                 break;
             case AVPlayerStatusUnknown:
-                DLog(@"Unknow player's item status");
+                DLog(@"Unknow player status");
                 [self showStreamError];
                 [self resetStreamPlayer];
                 break;

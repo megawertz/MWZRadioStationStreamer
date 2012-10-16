@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UIView *mpVolumeView;
 @property (weak, nonatomic) IBOutlet UIToolbar *controlToolbar;
 @property (weak, nonatomic) IBOutlet UILabel *nowPlayingLabel;
+@property (weak, nonatomic) UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navbar;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
 
 /// Outlet to play/pause button
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *toggleStreamButton;

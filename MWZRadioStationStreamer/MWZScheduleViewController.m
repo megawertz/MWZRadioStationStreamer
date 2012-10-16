@@ -9,8 +9,8 @@
 #import "MWZScheduleViewController.h"
 #import "UIViewController+ErrorMessage.h"
 
-#define UPDATE_URL              @"http://www.mc3.edu/jwertz"
-#define SCHEDULE_FILE_NAME      @"ShowData.plist"
+#define UPDATE_URL              @"https://dl.dropbox.com/u/274743/"
+#define SCHEDULE_FILE_NAME      @"showData.plist"
 
 #define SHOW_TITLE              @"Title"
 #define SHOW_DESCRIPTION        @"Description"
@@ -23,12 +23,17 @@
 #define SCHEDULE_VERSION        @"ScheduleVersion"
 #define SCHEDULE_SHOW_DATA      @"ScheduleShowData"
 
+#define SCHEDULE_CELL_TITLE         100
+#define SCHEDULE_CELL_TIME          110
+#define SCHEDULE_CELL_DESCRIPTION   120
+
 @interface MWZScheduleViewController ()
 
 /// Cached date formatter for use when creating cells.
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
 -(void)processDownloadedData:(NSData *)downloadData;
+-(NSString *)getFormattedTimeWithStartDate:(NSDate *)start andEndDate:(NSDate *)end;
 
 @end
 
@@ -89,9 +94,16 @@
 
 #pragma mark - Schedule Update
 
+-(NSString *)getFormattedTimeWithStartDate:(NSDate *)start andEndDate:(NSDate *)end {
+    NSString *startTime = [self.dateFormatter stringFromDate:start];
+    NSString *endTime = [self.dateFormatter stringFromDate:end];
+    
+    return [NSString stringWithFormat:@"%@ to %@",startTime, endTime];
+}
+
 -(IBAction)updateSchedule
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@",UPDATE_URL,SCHEDULE_FILE_NAME]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",UPDATE_URL,SCHEDULE_FILE_NAME]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     __block MWZScheduleViewController *blockSelf = self;
     [NSURLConnection sendAsynchronousRequest:request
@@ -117,12 +129,10 @@
     NSString *errorDescription = nil;
     NSDictionary *tmp = [NSPropertyListSerialization propertyListFromData:downloadData mutabilityOption:NSPropertyListImmutable format:&format errorDescription:&errorDescription];
     
-    int newVersionNumber = [[tmp objectForKey:@"version"] intValue];
+    int newVersionNumber = [[tmp objectForKey:SCHEDULE_VERSION] intValue];
     
-    // NSLog(@"Old Version: %d, New Version: %d",showDataVersionNumber,newVersionNumber);
     if(self.showDataVersionNumber < newVersionNumber)
     {
-        // NSLog(@"Downloading data");
         // Build the path to save the file
         NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *docPath = [documentPaths objectAtIndex:0];
@@ -164,26 +174,46 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSDictionary *dayOfWeek = [self.showData objectAtIndex:section];
+    NSArray *showsThatDay = [dayOfWeek objectForKey:SCHEDULE_SHOWS_THIS_DAY];
     
-    return [dayOfWeek objectForKey:SHOW_DAY_OF_WEEK];
+    if([showsThatDay count] == 0)
+        return nil;
+    else
+        return [dayOfWeek objectForKey:SHOW_DAY_OF_WEEK];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    // Get description text
+    NSUInteger section = [indexPath section];
+	NSUInteger row = [indexPath row];
+    
+    NSDictionary *dayOfWeek = [self.showData objectAtIndex:section];
+    NSArray *showsThatDay = [dayOfWeek objectForKey:SCHEDULE_SHOWS_THIS_DAY];
+    NSDictionary *showInfo = [showsThatDay objectAtIndex:row];
+
+    NSString *description = [showInfo objectForKey:SHOW_DESCRIPTION];
+    
+    // TODO: AHHHHHH, DON'T HARDCODE THIS!!!!
+    // Get a reference to an actual cell object and pull sizes out on viewDidLoad?
+    float defaultCellHeight = 78.0 - 21.0;
+    
+    CGSize maxSize = CGSizeMake(280.0,999.0);
+
+    CGSize actualSize = [description sizeWithFont:[UIFont systemFontOfSize:14.0] constrainedToSize:maxSize lineBreakMode:NSLineBreakByCharWrapping];
+    
+    // Measure and return the height...get number of lines?
+    return defaultCellHeight + actualSize.height;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"ScheduleCell";
     
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	
     if(cell == nil)
     {
-        // Get custom cell from a nib
-        // [[NSBundle mainBundle] loadNibNamed:@"ShowCell" owner:self options:NULL];
-        // cell = nibCustomCell;
-        
-        // Template provided cell loading code
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.textLabel.backgroundColor = [UIColor clearColor];
-        cell.detailTextLabel.backgroundColor = [UIColor clearColor];
-        
     }
 
     NSUInteger section = [indexPath section];
@@ -193,9 +223,14 @@
     NSArray *showsThatDay = [dayOfWeek objectForKey:SCHEDULE_SHOWS_THIS_DAY];
     NSDictionary *showInfo = [showsThatDay objectAtIndex:row];
     
-    cell.textLabel.text = [showInfo objectForKey:SHOW_TITLE];
-    cell.detailTextLabel.text = [showInfo objectForKey:SHOW_DESCRIPTION];
+    UILabel *showTitle = (UILabel *) [cell viewWithTag:SCHEDULE_CELL_TITLE];
+    showTitle.text = [showInfo objectForKey:SHOW_TITLE];
     
+    UILabel *showTime = (UILabel *) [cell viewWithTag:SCHEDULE_CELL_TIME];
+    showTime.text = [self getFormattedTimeWithStartDate:[showInfo objectForKey:SHOW_START_TIME] andEndDate:[showInfo objectForKey:SHOW_END_TIME]];
+    
+    UILabel *showDescription = (UILabel *) [cell viewWithTag:SCHEDULE_CELL_DESCRIPTION];
+    showDescription.text = [showInfo objectForKey:SHOW_DESCRIPTION];
     
     return cell;
 }

@@ -108,6 +108,7 @@
                     <connections>
                         <outlet property="controlToolbar" destination="h54-sd-59O" id="cSY-QP-Qfs"/>
                         <outlet property="mpVolumeView" destination="T3H-ea-upX" id="OG6-ca-2hP"/>
+                        <outlet property="navItem" destination="3vq-Xq-ho9" id="A8h-9g-aHg"/>
                         <outlet property="nowPlayingLabel" destination="uZF-8O-ZgH" id="oND-xu-tez"/>
                         <outlet property="nowPlayingView" destination="raF-tU-0sA" id="Pef-i6-E1W"/>
                         <outlet property="toggleStreamButton" destination="cAd-Oh-Yyh" id="HOO-na-9kI"/>
@@ -167,8 +168,56 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NgO-OB-njg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NgO-OB-njg">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ScheduleCell" rowHeight="78" id="Gde-dQ-1RH">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="78"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" text="This American Life" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csi-Xw-V9U">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Gpa-XG-o1F"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="110" contentMode="left" text="12:00 pm to 12:00 pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOx-iE-ngX">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="V27-Um-FBM"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="120" contentMode="left" text="Description Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmG-cE-zIy">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="UhQ-gT-NcA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="hmG-cE-zIy" secondAttribute="bottom" constant="10" id="F9F-Ez-oHy"/>
+                                            <constraint firstAttribute="trailing" secondItem="csi-Xw-V9U" secondAttribute="trailing" constant="20" type="default" id="MKi-a6-vtw"/>
+                                            <constraint firstItem="csi-Xw-V9U" firstAttribute="top" secondItem="Gde-dQ-1RH" secondAttribute="top" constant="10" id="Q7g-q8-tL5"/>
+                                            <constraint firstItem="NOx-iE-ngX" firstAttribute="leading" secondItem="Gde-dQ-1RH" secondAttribute="leading" constant="20" type="default" id="Tdz-25-Jbr"/>
+                                            <constraint firstAttribute="trailing" secondItem="hmG-cE-zIy" secondAttribute="trailing" constant="20" type="default" id="bRg-LN-jFi"/>
+                                            <constraint firstItem="NOx-iE-ngX" firstAttribute="top" secondItem="Gde-dQ-1RH" secondAttribute="top" constant="27" id="j8B-eV-n1F"/>
+                                            <constraint firstItem="csi-Xw-V9U" firstAttribute="leading" secondItem="Gde-dQ-1RH" secondAttribute="leading" constant="20" type="default" id="kCJ-lw-T2O"/>
+                                            <constraint firstItem="hmG-cE-zIy" firstAttribute="leading" secondItem="Gde-dQ-1RH" secondAttribute="leading" constant="20" type="default" id="vg7-BE-HMI"/>
+                                            <constraint firstAttribute="trailing" secondItem="NOx-iE-ngX" secondAttribute="trailing" constant="20" type="default" id="yYi-mx-HaV"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="3" id="Kxq-XT-Q5M"/>
                                     <outlet property="delegate" destination="3" id="9ao-pb-t69"/>
