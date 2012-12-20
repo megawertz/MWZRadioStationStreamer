@@ -12,4 +12,6 @@
 
 @property (nonatomic,strong) NSString *feedURL;
 
+-(void)parseXMLData:(NSData *)data;
+
 @end

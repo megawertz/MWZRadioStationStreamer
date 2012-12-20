@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		960575FA1682B3BB009AA40A /* MWZEpisodeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960575F91682B3BB009AA40A /* MWZEpisodeTableViewCell.m */; };
 		963D0A681625E68400F24931 /* MWZAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 963D0A671625E68400F24931 /* MWZAboutViewController.m */; };
 		963D0A6E1625E8A200F24931 /* showData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 963D0A6D1625E8A200F24931 /* showData.plist */; };
 		963D0A751625EAE400F24931 /* 59-info.png in Resources */ = {isa = PBXBuildFile; fileRef = 963D0A731625EAE400F24931 /* 59-info.png */; };
@@ -47,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		960575F81682B3BB009AA40A /* MWZEpisodeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWZEpisodeTableViewCell.h; sourceTree = "<group>"; };
+		960575F91682B3BB009AA40A /* MWZEpisodeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWZEpisodeTableViewCell.m; sourceTree = "<group>"; };
 		963D0A661625E68400F24931 /* MWZAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWZAboutViewController.h; sourceTree = "<group>"; };
 		963D0A671625E68400F24931 /* MWZAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWZAboutViewController.m; sourceTree = "<group>"; };
 		963D0A6D1625E8A200F24931 /* showData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = showData.plist; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 				C5E5947A1682395300FF53EA /* MWZPodcastPlayerViewController.m */,
 				C5E5947C168242D300FF53EA /* MWZPodcastEpisode.h */,
 				C5E5947D168242D300FF53EA /* MWZPodcastEpisode.m */,
+				960575F81682B3BB009AA40A /* MWZEpisodeTableViewCell.h */,
+				960575F91682B3BB009AA40A /* MWZEpisodeTableViewCell.m */,
 			);
 			name = Podcasts;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				C5E59478168238D900FF53EA /* MWZPodcastEpisodeListViewController.m in Sources */,
 				C5E5947B1682395300FF53EA /* MWZPodcastPlayerViewController.m in Sources */,
 				C5E5947E168242D300FF53EA /* MWZPodcastEpisode.m in Sources */,
+				960575FA1682B3BB009AA40A /* MWZEpisodeTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

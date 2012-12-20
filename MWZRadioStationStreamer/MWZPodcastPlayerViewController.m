@@ -7,6 +7,7 @@
 //
 
 #import "MWZPodcastPlayerViewController.h"
+#import "MWZPodcastEpisode.h"
 
 @interface MWZPodcastPlayerViewController ()
 
@@ -26,8 +27,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+    // Setup the info
+    [self.epTitle setText:[self.episode title]];
+    [self.epDate setText:[self.episode date]];
+    [self.epDescription setText:[self.episode description]];
+
 }
+
 
 - (void)didReceiveMemoryWarning
 {
