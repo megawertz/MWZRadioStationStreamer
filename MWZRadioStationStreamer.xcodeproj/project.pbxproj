@@ -36,6 +36,14 @@
 		9690F45E1616265500C04E0F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9690F45C1616265400C04E0F /* InfoPlist.strings */; };
 		9690F47D1616341A00C04E0F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9690F47B1616341A00C04E0F /* Localizable.strings */; };
 		96AE63451614B92A00469E0F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AE63441614B92A00469E0F /* AVFoundation.framework */; };
+		C5E5946C168226B600FF53EA /* 66-microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E5946A168226B600FF53EA /* 66-microphone.png */; };
+		C5E5946D168226B600FF53EA /* 66-microphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E5946B168226B600FF53EA /* 66-microphone@2x.png */; };
+		C5E5947016822CCA00FF53EA /* ota@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C5E5946E16822CCA00FF53EA /* ota@2x.jpg */; };
+		C5E5947116822CCA00FF53EA /* ota.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C5E5946F16822CCA00FF53EA /* ota.jpg */; };
+		C5E594751682382000FF53EA /* MWZPodcastShowListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E594741682382000FF53EA /* MWZPodcastShowListViewController.m */; };
+		C5E59478168238D900FF53EA /* MWZPodcastEpisodeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E59477168238D900FF53EA /* MWZPodcastEpisodeListViewController.m */; };
+		C5E5947B1682395300FF53EA /* MWZPodcastPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E5947A1682395300FF53EA /* MWZPodcastPlayerViewController.m */; };
+		C5E5947E168242D300FF53EA /* MWZPodcastEpisode.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E5947D168242D300FF53EA /* MWZPodcastEpisode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +87,18 @@
 		9690F47E1616344600C04E0F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9690F47F161634DA00C04E0F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		96AE63441614B92A00469E0F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C5E5946A168226B600FF53EA /* 66-microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "66-microphone.png"; sourceTree = "<group>"; };
+		C5E5946B168226B600FF53EA /* 66-microphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "66-microphone@2x.png"; sourceTree = "<group>"; };
+		C5E5946E16822CCA00FF53EA /* ota@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ota@2x.jpg"; sourceTree = "<group>"; };
+		C5E5946F16822CCA00FF53EA /* ota.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ota.jpg; sourceTree = "<group>"; };
+		C5E594731682382000FF53EA /* MWZPodcastShowListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWZPodcastShowListViewController.h; sourceTree = "<group>"; };
+		C5E594741682382000FF53EA /* MWZPodcastShowListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWZPodcastShowListViewController.m; sourceTree = "<group>"; };
+		C5E59476168238D900FF53EA /* MWZPodcastEpisodeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWZPodcastEpisodeListViewController.h; sourceTree = "<group>"; };
+		C5E59477168238D900FF53EA /* MWZPodcastEpisodeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWZPodcastEpisodeListViewController.m; sourceTree = "<group>"; };
+		C5E594791682395300FF53EA /* MWZPodcastPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWZPodcastPlayerViewController.h; sourceTree = "<group>"; };
+		C5E5947A1682395300FF53EA /* MWZPodcastPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWZPodcastPlayerViewController.m; sourceTree = "<group>"; };
+		C5E5947C168242D300FF53EA /* MWZPodcastEpisode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWZPodcastEpisode.h; sourceTree = "<group>"; };
+		C5E5947D168242D300FF53EA /* MWZPodcastEpisode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWZPodcastEpisode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +191,7 @@
 		967725DA1611231F00D76B78 /* MWZRadioStationStreamer */ = {
 			isa = PBXGroup;
 			children = (
+				C5E594681682267400FF53EA /* Podcasts */,
 				963D0A5F1625E4E200F24931 /* About */,
 				96548D431613A485008A0C10 /* Schedule */,
 				96548D411613A46B008A0C10 /* Stream */,
@@ -197,6 +218,33 @@
 				963D0A791625F5EC00F24931 /* UIViewController+ErrorMessage.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C5E594681682267400FF53EA /* Podcasts */ = {
+			isa = PBXGroup;
+			children = (
+				C5E5947216822CD000FF53EA /* Show Art */,
+				C5E5946A168226B600FF53EA /* 66-microphone.png */,
+				C5E5946B168226B600FF53EA /* 66-microphone@2x.png */,
+				C5E594731682382000FF53EA /* MWZPodcastShowListViewController.h */,
+				C5E594741682382000FF53EA /* MWZPodcastShowListViewController.m */,
+				C5E59476168238D900FF53EA /* MWZPodcastEpisodeListViewController.h */,
+				C5E59477168238D900FF53EA /* MWZPodcastEpisodeListViewController.m */,
+				C5E594791682395300FF53EA /* MWZPodcastPlayerViewController.h */,
+				C5E5947A1682395300FF53EA /* MWZPodcastPlayerViewController.m */,
+				C5E5947C168242D300FF53EA /* MWZPodcastEpisode.h */,
+				C5E5947D168242D300FF53EA /* MWZPodcastEpisode.m */,
+			);
+			name = Podcasts;
+			sourceTree = "<group>";
+		};
+		C5E5947216822CD000FF53EA /* Show Art */ = {
+			isa = PBXGroup;
+			children = (
+				C5E5946E16822CCA00FF53EA /* ota@2x.jpg */,
+				C5E5946F16822CCA00FF53EA /* ota.jpg */,
+			);
+			name = "Show Art";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +316,10 @@
 				963D0A751625EAE400F24931 /* 59-info.png in Resources */,
 				963D0A761625EAE400F24931 /* 59-info@2x.png in Resources */,
 				963D0A8016260EC400F24931 /* About.html in Resources */,
+				C5E5946C168226B600FF53EA /* 66-microphone.png in Resources */,
+				C5E5946D168226B600FF53EA /* 66-microphone@2x.png in Resources */,
+				C5E5947016822CCA00FF53EA /* ota@2x.jpg in Resources */,
+				C5E5947116822CCA00FF53EA /* ota.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +336,10 @@
 				967725F81611231F00D76B78 /* MWZScheduleViewController.m in Sources */,
 				963D0A681625E68400F24931 /* MWZAboutViewController.m in Sources */,
 				963D0A7A1625F5EC00F24931 /* UIViewController+ErrorMessage.m in Sources */,
+				C5E594751682382000FF53EA /* MWZPodcastShowListViewController.m in Sources */,
+				C5E59478168238D900FF53EA /* MWZPodcastEpisodeListViewController.m in Sources */,
+				C5E5947B1682395300FF53EA /* MWZPodcastPlayerViewController.m in Sources */,
+				C5E5947E168242D300FF53EA /* MWZPodcastEpisode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

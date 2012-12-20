@@ -70,7 +70,7 @@
         {
             // If we can't copy the db this is a big error
             // How best to respond to this?
-            NSLog(@"Visits DB file not copied to documents directory. Error.");
+            NSLog(@"Schedule file not copied to documents directory. Error.");
             return;
         }
         
