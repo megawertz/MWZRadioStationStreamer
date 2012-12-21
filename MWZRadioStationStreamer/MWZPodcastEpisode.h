@@ -13,12 +13,14 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic, strong) NSString *description;
-@property (nonatomic, strong) NSString *fileName;
+@property (nonatomic, strong) NSString *url;
 
 -(id)initWithTitle:(NSString *)title
               date:(NSString *)date
        description:(NSString *)description
-          fileName:(NSString *)fileName;
+               url:(NSString *)url;
 
+
+-(NSString *)file;
 
 @end

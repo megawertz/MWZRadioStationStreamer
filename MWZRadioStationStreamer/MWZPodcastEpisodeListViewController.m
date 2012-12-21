@@ -63,7 +63,7 @@
 // podcastEpisodeDetailSeque
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"podcastEpisodeDetailSeque"]) {
+    if ([[segue identifier] isEqualToString:@"podcastPlayerSeque"]) {
         MWZPodcastPlayerViewController *destination = [segue destinationViewController];
         destination.episode = [self.episodes objectAtIndex:[self.tableView indexPathForSelectedRow].row];
     }
@@ -134,7 +134,7 @@
         [self.currentEpisode setTitle:trimmedString];
     }
     else if([elementName isEqualToString:LINK_TAG]) {
-        [self.currentEpisode setFileName:trimmedString];
+        [self.currentEpisode setUrl:trimmedString];
     }
     else if([elementName isEqualToString:DESCRIPTION_TAG]) {
         // Get rid of any text in parens at the end of the string

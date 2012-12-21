@@ -13,7 +13,7 @@
 -(id)initWithTitle:(NSString *)title
               date:(NSString *)date
        description:(NSString *)description
-          fileName:(NSString *)fileName {
+               url:(NSString *)url {
     
     self = [super init];
     
@@ -21,14 +21,21 @@
         [self setTitle:title];
         [self setDate:date];
         [self setDescription:description];
-        [self setFileName:fileName];
+        [self setUrl:url];
     }
     
     return self;
 }
 
 -(id)init {
-    return [self initWithTitle:nil date:nil description:nil fileName:nil];
+    return [self initWithTitle:nil date:nil description:nil url:nil];
 }
 
+-(NSString *)file {
+    // Get just the mp3 filename if needed
+    NSURL *tmpUrl = [NSURL URLWithString:[self url]];
+    
+    // relativePath may be more proper here, this might include fragments and queries
+    return [[tmpUrl lastPathComponent] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
 @end
