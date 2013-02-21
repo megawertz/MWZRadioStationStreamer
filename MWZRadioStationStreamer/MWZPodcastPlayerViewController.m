@@ -9,7 +9,7 @@
 #import "MWZPodcastPlayerViewController.h"
 #import "MWZPodcastEpisode.h"
 
-#define STREAM_URL @"http://stream.mc3.edu/mcccota/"
+#define STREAM_URL @"http://stream.mc3.edu/podcast/mc3ota"
 
 @interface MWZPodcastPlayerViewController ()
 
@@ -43,6 +43,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(NSString *)secondsToTimerFormat:(int)s {
+  
+    int hours = s / 60 / 60;
+    int minutes = (s - hours * 60 * 60) / 60;
+    int seconds = s % 60;
+    
+    return [NSString stringWithFormat:@"%d:%d:%d", hours, minutes, seconds];
+    
 }
 
 - (IBAction)rewind:(id)sender {
@@ -96,6 +106,10 @@
         
         if([self.player rate]) {
             DLog(@"We have a rate, this is playing. Rate: %f",[self.player rate]);
+            CMTime d = [[self.player currentItem] duration];
+            [self setEpisodeDuration:d.value/d.timescale];
+            //[self.timeRemainingLabel setText:[self secondsToTimerFormat:d.value/d.timescale]];
+            
 //            [self showPauseButton];
 //            if(![self.player.currentItem isPlaybackLikelyToKeepUp])
 //                [self.spinner startAnimating];

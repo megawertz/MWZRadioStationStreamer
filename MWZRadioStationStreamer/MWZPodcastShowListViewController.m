@@ -32,7 +32,7 @@
 
     // Just setup rss feeds here onload, not going to be a big list
     // If it grows then we can get fancy
-    NSArray *tmp = @[@"http://stream.mc3.edu/mcccota/rss.xml"];
+    NSArray *tmp = @[@"http://stream.mc3.edu/podcast/mc3ota/feed.xml"];
     [self setFeedURLs:tmp];
 
 }

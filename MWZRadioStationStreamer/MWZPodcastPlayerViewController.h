@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) MWZPodcastEpisode *episode;
 
+@property int episodeDuration;
+
 @property (weak, nonatomic) IBOutlet UILabel *epTitle;
 @property (weak, nonatomic) IBOutlet UILabel *epDate;
 @property (weak, nonatomic) IBOutlet UITextView *epDescription;
@@ -31,5 +33,6 @@
 - (IBAction)fastforward:(id)sender;
 - (IBAction)play:(id)sender;
 
+-(NSString *)secondsToTimerFormat:(int)s;
 
 @end
