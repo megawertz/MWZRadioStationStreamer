@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <CoreMedia/CoreMedia.h>
 
 @class MWZPodcastEpisode;
 
@@ -17,11 +18,11 @@
 
 @property int episodeDuration;
 
+@property (weak, nonatomic) IBOutlet UISlider *playerProgressBar;
 @property (weak, nonatomic) IBOutlet UILabel *epTitle;
 @property (weak, nonatomic) IBOutlet UILabel *epDate;
 @property (weak, nonatomic) IBOutlet UITextView *epDescription;
 
-@property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 @property (weak, nonatomic) IBOutlet UILabel *timePlayedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeRemainingLabel;
 

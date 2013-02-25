@@ -9,11 +9,12 @@
 #import "MWZPodcastPlayerViewController.h"
 #import "MWZPodcastEpisode.h"
 
-#define STREAM_URL @"http://stream.mc3.edu/podcast/mc3ota"
+#define STREAM_URL @"http://stream.mc3.edu/podcast/mc3ota/media/"
 
 @interface MWZPodcastPlayerViewController ()
 
 @property (nonatomic,strong) AVPlayer *player;
+@property (nonatomic, strong) id timeObserver;
 
 @end
 
@@ -51,7 +52,7 @@
     int minutes = (s - hours * 60 * 60) / 60;
     int seconds = s % 60;
     
-    return [NSString stringWithFormat:@"%d:%d:%d", hours, minutes, seconds];
+    return [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
     
 }
 
@@ -64,9 +65,9 @@
 - (IBAction)play:(id)sender {
     // Lazy load the player
     if(_player == nil) {
-        NSString *fullStreamURL = [NSString stringWithFormat:@"%@%@",STREAM_URL,[self.episode file]];
+        NSString *fullStreamURL = [NSString stringWithFormat:@"%@",[self.episode url]];
         
-        NSLog(@"Full Stream URL: %@",fullStreamURL);
+        // NSLog(@"Full Stream URL: %@",fullStreamURL);
         
         AVPlayer *tmp = [AVPlayer playerWithURL:[NSURL URLWithString:fullStreamURL]];
         [self setPlayer:tmp];
@@ -107,8 +108,21 @@
         if([self.player rate]) {
             DLog(@"We have a rate, this is playing. Rate: %f",[self.player rate]);
             CMTime d = [[self.player currentItem] duration];
-            [self setEpisodeDuration:d.value/d.timescale];
-            //[self.timeRemainingLabel setText:[self secondsToTimerFormat:d.value/d.timescale]];
+            if(d.timescale > 0) {
+                [self setEpisodeDuration:CMTimeGetSeconds(d)];
+                
+                __block MWZPodcastPlayerViewController *blockSelf = self;
+                self.timeObserver = [[self player] addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:nil usingBlock:^(CMTime time) {
+                    int secondsPlayed = CMTimeGetSeconds(time);
+                    [blockSelf.timePlayedLabel setText:[blockSelf secondsToTimerFormat:secondsPlayed]];
+                    [blockSelf.timeRemainingLabel setText:[blockSelf secondsToTimerFormat:(blockSelf.episodeDuration - secondsPlayed)]];
+                    
+                    float progressAmt = (secondsPlayed/(float)blockSelf.episodeDuration);
+                    NSLog(@"Progress: %f",progressAmt);
+                    [[blockSelf playerProgressBar] setValue:progressAmt animated:YES];
+                }];
+
+            }
             
 //            [self showPauseButton];
 //            if(![self.player.currentItem isPlaybackLikelyToKeepUp])

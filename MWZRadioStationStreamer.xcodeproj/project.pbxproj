@@ -37,6 +37,7 @@
 		9690F45E1616265500C04E0F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9690F45C1616265400C04E0F /* InfoPlist.strings */; };
 		9690F47D1616341A00C04E0F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9690F47B1616341A00C04E0F /* Localizable.strings */; };
 		96AE63451614B92A00469E0F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AE63441614B92A00469E0F /* AVFoundation.framework */; };
+		96DF550416DC0CC70038DAD1 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DF550316DC0CC70038DAD1 /* CoreMedia.framework */; };
 		C5E5946C168226B600FF53EA /* 66-microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E5946A168226B600FF53EA /* 66-microphone.png */; };
 		C5E5946D168226B600FF53EA /* 66-microphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E5946B168226B600FF53EA /* 66-microphone@2x.png */; };
 		C5E5947016822CCA00FF53EA /* ota@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C5E5946E16822CCA00FF53EA /* ota@2x.jpg */; };
@@ -90,6 +91,7 @@
 		9690F47E1616344600C04E0F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9690F47F161634DA00C04E0F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		96AE63441614B92A00469E0F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		96DF550316DC0CC70038DAD1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C5E5946A168226B600FF53EA /* 66-microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "66-microphone.png"; sourceTree = "<group>"; };
 		C5E5946B168226B600FF53EA /* 66-microphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "66-microphone@2x.png"; sourceTree = "<group>"; };
 		C5E5946E16822CCA00FF53EA /* ota@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ota@2x.jpg"; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96DF550416DC0CC70038DAD1 /* CoreMedia.framework in Frameworks */,
 				9651B11E16265A0500FD7DB9 /* AudioToolbox.framework in Frameworks */,
 				963D0A7E1625FCC500F24931 /* Social.framework in Frameworks */,
 				963D0A7C1625FA3500F24931 /* MessageUI.framework in Frameworks */,
@@ -179,6 +182,7 @@
 		967725D31611231F00D76B78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96DF550316DC0CC70038DAD1 /* CoreMedia.framework */,
 				9651B11D16265A0500FD7DB9 /* AudioToolbox.framework */,
 				963D0A7D1625FCC500F24931 /* Social.framework */,
 				963D0A7B1625FA3400F24931 /* MessageUI.framework */,

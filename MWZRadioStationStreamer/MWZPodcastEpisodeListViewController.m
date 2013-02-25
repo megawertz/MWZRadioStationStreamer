@@ -17,6 +17,7 @@
 #define LINK_TAG            @"link"
 #define DESCRIPTION_TAG     @"description"
 #define PUBDATE_TAG         @"pubDate"
+#define ENCLOSURE_TAG       @"enclosure"
 
 @interface MWZPodcastEpisodeListViewController ()
 
@@ -47,7 +48,7 @@
     self.episodes = [NSMutableArray array];
     
     // Tags I'm interested in to add to objects
-    self.tags = [NSSet setWithArray:@[TITLE_TAG, LINK_TAG, DESCRIPTION_TAG, PUBDATE_TAG]];
+    self.tags = [NSSet setWithArray:@[TITLE_TAG, LINK_TAG, DESCRIPTION_TAG, PUBDATE_TAG, ENCLOSURE_TAG]];
     
     // When the view loads, go get the RSS feed
     // For now just download and process, setup caching later
@@ -109,8 +110,13 @@
         self.currentEpisode = [[MWZPodcastEpisode alloc] init];
     }
     else if([self.tags containsObject:elementName]) {
+        if([elementName isEqualToString:ENCLOSURE_TAG]) {
+            self.currentString = [NSMutableString stringWithString:[attributeDict objectForKey:@"url"]];
+        }
         // It's a tag we're interested in, reset the accumulator
-        self.currentString = [NSMutableString string];
+        else {
+            self.currentString = [NSMutableString string];
+        }
     }
     
 }
@@ -133,14 +139,14 @@
     else if([elementName isEqualToString:TITLE_TAG]) {
         [self.currentEpisode setTitle:trimmedString];
     }
-    else if([elementName isEqualToString:LINK_TAG]) {
+    else if([elementName isEqualToString:ENCLOSURE_TAG]) {
         [self.currentEpisode setUrl:trimmedString];
     }
     else if([elementName isEqualToString:DESCRIPTION_TAG]) {
         // Get rid of any text in parens at the end of the string
-        NSRange subRange = [trimmedString rangeOfString:@"(Run"];
-        NSString *d = (subRange.location == NSNotFound) ? trimmedString : [trimmedString substringToIndex:subRange.location];
-        [self.currentEpisode setDescription:d];
+        // NSRange subRange = [trimmedString rangeOfString:@"(Run"];
+        // NSString *d = (subRange.location == NSNotFound) ? trimmedString : [trimmedString substringToIndex:subRange.location];
+        [self.currentEpisode setDescription:trimmedString];
     }
     else if([elementName isEqualToString:PUBDATE_TAG]) {
         [self.currentEpisode setDate:trimmedString];
