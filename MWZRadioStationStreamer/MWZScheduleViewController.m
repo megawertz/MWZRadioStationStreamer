@@ -9,6 +9,7 @@
 #import "MWZScheduleViewController.h"
 #import "UIViewController+ErrorMessage.h"
 
+// TODO: Get a permenant home for the schedule plist file
 #define UPDATE_URL              @"https://dl.dropbox.com/u/274743/"
 #define SCHEDULE_FILE_NAME      @"showData.plist"
 
@@ -70,7 +71,7 @@
         {
             // If we can't copy the db this is a big error
             // How best to respond to this?
-            NSLog(@"Schedule file not copied to documents directory. Error.");
+            DLog(@"Schedule file not copied to documents directory. Error.");
             return;
         }
         

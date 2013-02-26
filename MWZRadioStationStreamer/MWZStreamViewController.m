@@ -84,7 +84,7 @@
 
 -(void)viewDidDisappear:(BOOL)animated {
     
-    // TODO: If we are playing, don't deregister from getting thesen notifications
+    // TODO: If we are playing, don't deregister from getting these notifications
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     [self resignFirstResponder];
     [super viewDidDisappear:animated];
@@ -103,17 +103,24 @@
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:
                             NSLocalizedString(@"RequestMenuTitle",@"Make a Request!")
                                                        delegate:self
-                                              cancelButtonTitle:
-                            NSLocalizedString(@"RequestMenuButton_Cancel",@"Cancel")
+                                              cancelButtonTitle:nil
                                          destructiveButtonTitle:nil
-                                              otherButtonTitles:
-                            NSLocalizedString(@"RequestMenuButton_Twitter",@"Active word for Twitter service...i.e. Tweet"),
-                            NSLocalizedString(@"RequestMenuButton_Email",@"Email"), nil];
+                                              otherButtonTitles:nil];
+    
+    [sheet addButtonWithTitle:NSLocalizedString(@"RequestMenuButton_Twitter",@"Active word for Twitter service...i.e. Tweet")];
+    
+    [sheet addButtonWithTitle:NSLocalizedString(@"RequestMenuButton_Email",@"Email")];
     
     // Don't show the call button to devices that can't make calls
+    // Adding buttons manually because of this.
     if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]])
         [sheet addButtonWithTitle:NSLocalizedString(@"RequestMenuButton_Call",@"Call")];
    
+    [sheet addButtonWithTitle:NSLocalizedString(@"RequestMenuButton_Cancel",@"Cancel")];
+    
+    [sheet setCancelButtonIndex:[sheet numberOfButtons]-1];
+
+    
     [sheet showFromTabBar:self.tabBarController.tabBar];
 }
 
@@ -217,13 +224,13 @@
     NSArray *metadataList = [playerItem.asset commonMetadata];
     
     
-    if([metadataList count] > 0) {
-        // TODO: Animate this in. Don't just let it appear.
-        [self.nowPlayingView setHidden:NO];
-        // If there's no metadata remove the now playing banner from the view
-        [self.nowPlayingLabel setText:@"Metadata Here"];
-        
-    }
+//    if([metadataList count] > 0) {
+//        // TODO: Animate this in. Don't just let it appear.
+//        [self.nowPlayingView setHidden:NO];
+//        // If there's no metadata remove the now playing banner from the view
+//        [self.nowPlayingLabel setText:@"Metadata Here"];
+//        
+//    }
     
     // Debug of metadata to see what I'm getting.
     for (AVMetadataItem *metaItem in metadataList) {

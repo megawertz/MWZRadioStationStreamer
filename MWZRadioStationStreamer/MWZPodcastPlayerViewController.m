@@ -9,7 +9,8 @@
 #import "MWZPodcastPlayerViewController.h"
 #import "MWZPodcastEpisode.h"
 
-#define STREAM_URL @"http://stream.mc3.edu/podcast/mc3ota/media/"
+#define STREAM_URL  @"http://stream.mc3.edu/podcast/mc3ota/media/"
+#define SEEK_AMOUNT 30  // used for rewind and fast forward
 
 @interface MWZPodcastPlayerViewController ()
 
@@ -57,9 +58,13 @@
 }
 
 - (IBAction)rewind:(id)sender {
+    int currentPosition = CMTimeGetSeconds([[self player] currentTime]);
+    [[self player] seekToTime:CMTimeMake(currentPosition-SEEK_AMOUNT, 1)];
 }
 
 - (IBAction)fastforward:(id)sender {
+    int currentPosition = CMTimeGetSeconds([[self player] currentTime]);
+    [[self player] seekToTime:CMTimeMake(currentPosition+SEEK_AMOUNT, 1)];
 }
 
 - (IBAction)play:(id)sender {
@@ -67,7 +72,7 @@
     if(_player == nil) {
         NSString *fullStreamURL = [NSString stringWithFormat:@"%@",[self.episode url]];
         
-        // NSLog(@"Full Stream URL: %@",fullStreamURL);
+        // DLog(@"Full Stream URL: %@",fullStreamURL);
         
         AVPlayer *tmp = [AVPlayer playerWithURL:[NSURL URLWithString:fullStreamURL]];
         [self setPlayer:tmp];
@@ -113,13 +118,14 @@
                 
                 __block MWZPodcastPlayerViewController *blockSelf = self;
                 self.timeObserver = [[self player] addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:nil usingBlock:^(CMTime time) {
+                    
                     int secondsPlayed = CMTimeGetSeconds(time);
                     [blockSelf.timePlayedLabel setText:[blockSelf secondsToTimerFormat:secondsPlayed]];
                     [blockSelf.timeRemainingLabel setText:[blockSelf secondsToTimerFormat:(blockSelf.episodeDuration - secondsPlayed)]];
                     
                     float progressAmt = (secondsPlayed/(float)blockSelf.episodeDuration);
-                    NSLog(@"Progress: %f",progressAmt);
                     [[blockSelf playerProgressBar] setValue:progressAmt animated:YES];
+                    
                 }];
 
             }
