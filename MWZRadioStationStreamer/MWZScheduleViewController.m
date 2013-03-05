@@ -7,6 +7,7 @@
 //
 
 #import "MWZScheduleViewController.h"
+#import "MWZSharedReachability.h"
 #import "UIViewController+ErrorMessage.h"
 
 // TODO: Get a permenant home for the schedule plist file
@@ -110,6 +111,13 @@
 
 -(IBAction)updateSchedule
 {
+    if([[MWZSharedReachability sharedReachability] isNetworkReachable]) {
+        NSLog(@"***Network UP!");
+    }else {
+        NSLog(@"*****NETWORK DOWN, SHOW ALERT HERE!");
+        return;
+    }
+    
     
     // Break the code in this if statement out into a separate method.
     if([self performUpdateBasedOnTime])
@@ -173,8 +181,9 @@
         return YES;
     
     DLog(@"Last Update Time: %@",lastUpdate);
-    
-    return ([lastUpdate timeIntervalSinceNow] > UPDATE_INTERVAL);
+    DLog(@"Time Interval Since Now: %f",[lastUpdate timeIntervalSinceNow]);
+    // Numbers in the past are negative
+    return (fabs([lastUpdate timeIntervalSinceNow]) > UPDATE_INTERVAL);
     
 }
 

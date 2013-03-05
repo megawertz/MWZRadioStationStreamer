@@ -13,6 +13,7 @@
 		9618953016E594EB007D3178 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9618952F16E594EB007D3178 /* Localizable.strings */; };
 		9618953216E59857007D3178 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9618953116E59857007D3178 /* SystemConfiguration.framework */; };
 		9618953616E59986007D3178 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9618953516E59986007D3178 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9618953916E5A13D007D3178 /* MWZSharedReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9618953816E5A13D007D3178 /* MWZSharedReachability.m */; };
 		96269F5016DC4CA8007D96BF /* montcoRadioLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 96269F4E16DC4CA8007D96BF /* montcoRadioLogo.png */; };
 		96269F5116DC4CA8007D96BF /* montcoRadioLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96269F4F16DC4CA8007D96BF /* montcoRadioLogo@2x.png */; };
 		96269F5416DC4E47007D96BF /* ONA_MC3_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 96269F5216DC4E47007D96BF /* ONA_MC3_logo.png */; };
@@ -62,6 +63,8 @@
 		9618953116E59857007D3178 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9618953416E59986007D3178 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		9618953516E59986007D3178 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		9618953716E5A13D007D3178 /* MWZSharedReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWZSharedReachability.h; sourceTree = "<group>"; };
+		9618953816E5A13D007D3178 /* MWZSharedReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWZSharedReachability.m; sourceTree = "<group>"; };
 		96269F4E16DC4CA8007D96BF /* montcoRadioLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = montcoRadioLogo.png; sourceTree = "<group>"; };
 		96269F4F16DC4CA8007D96BF /* montcoRadioLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "montcoRadioLogo@2x.png"; sourceTree = "<group>"; };
 		96269F5216DC4E47007D96BF /* ONA_MC3_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ONA_MC3_logo.png; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 		967725DB1611231F00D76B78 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9618953716E5A13D007D3178 /* MWZSharedReachability.h */,
+				9618953816E5A13D007D3178 /* MWZSharedReachability.m */,
 				9618953416E59986007D3178 /* Reachability.h */,
 				9618953516E59986007D3178 /* Reachability.m */,
 				9618953316E59920007D3178 /* App Images */,
@@ -377,6 +382,7 @@
 				C5E5947E168242D300FF53EA /* MWZPodcastEpisode.m in Sources */,
 				960575FA1682B3BB009AA40A /* MWZEpisodeTableViewCell.m in Sources */,
 				9618953616E59986007D3178 /* Reachability.m in Sources */,
+				9618953916E5A13D007D3178 /* MWZSharedReachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

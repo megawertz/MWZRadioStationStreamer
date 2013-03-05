@@ -7,6 +7,7 @@
 //
 
 #import "MWZStreamViewController.h"
+#import "MWZSharedReachability.h"
 #import "UIViewController+ErrorMessage.h"
 
 #define INTERFACE_DISAPPEAR_DELAY   5
@@ -298,6 +299,14 @@
 
 - (IBAction)toggleStream {
 
+    if([[MWZSharedReachability sharedReachability] isNetworkReachable]) {
+        NSLog(@"***Network UP!");
+    }else {
+        NSLog(@"*****NETWORK DOWN, SHOW ALERT HERE!");
+        return;
+    }
+    
+    
     // Lazy load the player
     if(_player == nil) {
         AVPlayer *tmp = [AVPlayer playerWithURL:[NSURL URLWithString:STREAM_URL]];
