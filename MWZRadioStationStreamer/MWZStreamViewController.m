@@ -12,9 +12,9 @@
 #define INTERFACE_DISAPPEAR_DELAY   5
 #define STREAM_URL                  @"http://stream.mc3.edu:8000/stream.m3u"
 #define STATION_PHONE_NUMBER        @"215-619-7366"
-#define STATION_EMAIL               @"jwertz@mc3.edu"
-#define STATION_TWITTER_ACCOUNT     @"@montcoradio"
-#define STATION_TWITTER_HASHTAG     @"#request"
+#define STATION_EMAIL               @"contact.montcoradio@gmail.com"
+#define STATION_TWITTER_ACCOUNT     @"@montco_radio"
+#define STATION_TWITTER_HASHTAG     @"#mc3request"
 
 @interface MWZStreamViewController ()
 
