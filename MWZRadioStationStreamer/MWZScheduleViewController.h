@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *showData;
+@property (strong, nonatomic) UIView *updatingView;
+
 @property int showDataVersionNumber;
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *scheduleTitle;

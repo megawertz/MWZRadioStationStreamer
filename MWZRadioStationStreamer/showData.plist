@@ -11,13 +11,13 @@
 			<array>
 				<dict>
 					<key>Title</key>
-					<string>This American Life</string>
+					<string>-</string>
 					<key>Description</key>
-					<string>Awesome stuff from Ira Glass.</string>
+					<string>-</string>
 					<key>StartTime</key>
-					<date>2012-10-16T17:00:00Z</date>
+					<date>2012-10-16T16:00:00Z</date>
 					<key>EndTime</key>
-					<date>2012-10-16T18:00:00Z</date>
+					<date>2012-10-16T17:00:00Z</date>
 				</dict>
 			</array>
 		</dict>

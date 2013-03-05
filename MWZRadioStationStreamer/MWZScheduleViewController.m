@@ -13,6 +13,9 @@
 #define UPDATE_URL              @"https://dl.dropbox.com/u/274743/"
 #define SCHEDULE_FILE_NAME      @"showData.plist"
 
+#define UPDATE_KEY              @"LastUpdateTime"
+#define UPDATE_INTERVAL         60 * 5 // 5 minutes
+
 #define SHOW_TITLE              @"Title"
 #define SHOW_DESCRIPTION        @"Description"
 #define SHOW_START_TIME         @"StartTime"
@@ -33,6 +36,9 @@
 /// Cached date formatter for use when creating cells.
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
+-(void)saveUpdateTime;
+-(BOOL)performUpdateBasedOnTime;
+-(void)noNewDataAvailableAlert;
 -(void)processDownloadedData:(NSData *)downloadData;
 -(NSString *)getFormattedTimeWithStartDate:(NSDate *)start andEndDate:(NSDate *)end;
 
@@ -104,23 +110,72 @@
 
 -(IBAction)updateSchedule
 {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",UPDATE_URL,SCHEDULE_FILE_NAME]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    __block MWZScheduleViewController *blockSelf = self;
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                               NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                               if(error == nil && [httpResponse statusCode] == 200) {
-                                   [blockSelf processDownloadedData:data];
-                               }
-                               else {
-                                   // Download error, prompt to try again
-                                   [blockSelf errorWithTitle:NSLocalizedString(@"ErrorDialogTitle_ScheduleDownloadError",@"There was an error with the download.")
-                                                message:NSLocalizedString(@"ErrorDialogMessage_ScheduleDownloadFailed",@"There was an error. Please try again later.")
-                                        andCancelButton:NSLocalizedString(@"ErrorDialogCancelButton_Standard",@"Dismiss.")];
-                               }
-                           }];
+    
+    // Break the code in this if statement out into a separate method.
+    if([self performUpdateBasedOnTime])
+    {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",UPDATE_URL,SCHEDULE_FILE_NAME]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        // Lazy load this view
+        if([self updatingView] == nil) {
+            UIView *indicatorView = [[UIView alloc] initWithFrame:[self.view frame]];
+            
+            [indicatorView setBackgroundColor:[UIColor blackColor]];
+            [indicatorView setAlpha:.5];
+            
+            UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+            [activityIndicator setCenter:[indicatorView center]];
+            [indicatorView addSubview:activityIndicator];
+            [activityIndicator startAnimating];
+            [self setUpdatingView:indicatorView];
+            
+        }
+        
+        [[self view] addSubview:[self updatingView]];
+        
+        
+        __block MWZScheduleViewController *blockSelf = self;
+        [NSURLConnection sendAsynchronousRequest:request
+                                           queue:[NSOperationQueue mainQueue]
+                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                                   
+                                   [[blockSelf updatingView] removeFromSuperview];
+                                   
+                                   NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                   if(error == nil && [httpResponse statusCode] == 200) {
+                                       [blockSelf processDownloadedData:data];
+                                       [blockSelf saveUpdateTime];
+                                   }
+                                   else {
+                                       // Download error, prompt to try again
+                                       [blockSelf errorWithTitle:NSLocalizedString(@"ErrorDialogTitle_ScheduleDownloadError",@"There was an error with the download.")
+                                                    message:NSLocalizedString(@"ErrorDialogMessage_ScheduleDownloadFailed",@"There was an error. Please try again later.")
+                                            andCancelButton:NSLocalizedString(@"ErrorDialogCancelButton_Standard",@"Dismiss.")];
+                                   }
+                               }];
+    }
+    else {
+        [self noNewDataAvailableAlert];
+    }
+}
+
+-(void)saveUpdateTime {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSDate date] forKey:UPDATE_KEY];
+}
+
+-(BOOL)performUpdateBasedOnTime {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDate *lastUpdate = [defaults objectForKey:UPDATE_KEY];
+    
+    if(lastUpdate == nil)
+        return YES;
+    
+    DLog(@"Last Update Time: %@",lastUpdate);
+    
+    return ([lastUpdate timeIntervalSinceNow] > UPDATE_INTERVAL);
+    
 }
 
 -(void)processDownloadedData:(NSData *)downloadData
@@ -153,11 +208,15 @@
         [self.tableView reloadData];
     }
     else {
-        // Alert the user
-        [self errorWithTitle:NSLocalizedString(@"ErrorDialogTitle_ScheduleDownloadUnavailable",@"Nothing New.")
-                     message:NSLocalizedString(@"ErrorDialogMessage_ScheduleDownloadNoNewData",@"There was no new schedule available.")
-             andCancelButton:NSLocalizedString(@"ErrorDialogCancelButton_Standard",@"Dismiss.")];
+        [self noNewDataAvailableAlert];
     }
+}
+
+-(void)noNewDataAvailableAlert {
+    // Alert the user
+    [self errorWithTitle:NSLocalizedString(@"ErrorDialogTitle_ScheduleDownloadUnavailable",@"Nothing New.")
+                 message:NSLocalizedString(@"ErrorDialogMessage_ScheduleDownloadNoNewData",@"There was no new schedule available.")
+         andCancelButton:NSLocalizedString(@"ErrorDialogCancelButton_Standard",@"Dismiss.")];
 }
 
 #pragma mark - Table Delegates
@@ -197,11 +256,11 @@
     
     // TODO: AHHHHHH, DON'T HARDCODE THIS!!!!
     // Get a reference to an actual cell object and pull sizes out on viewDidLoad?
-    float defaultCellHeight = 78.0 - 21.0;
+    float defaultCellHeight = 80.0 - 21.0;
     
     CGSize maxSize = CGSizeMake(280.0,999.0);
 
-    CGSize actualSize = [description sizeWithFont:[UIFont systemFontOfSize:14.0] constrainedToSize:maxSize lineBreakMode:NSLineBreakByCharWrapping];
+    CGSize actualSize = [description sizeWithFont:[UIFont systemFontOfSize:16.0] constrainedToSize:maxSize lineBreakMode:NSLineBreakByCharWrapping];
     
     // Measure and return the height...get number of lines?
     return defaultCellHeight + actualSize.height;

@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9601A51916DC64830050CD14 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9601A51816DC64830050CD14 /* Icon.png */; };
+		9601A51B16DC64B00050CD14 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9601A51A16DC64B00050CD14 /* Icon@2x.png */; };
 		960575FA1682B3BB009AA40A /* MWZEpisodeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 960575F91682B3BB009AA40A /* MWZEpisodeTableViewCell.m */; };
+		9618953016E594EB007D3178 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9618952F16E594EB007D3178 /* Localizable.strings */; };
+		9618953216E59857007D3178 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9618953116E59857007D3178 /* SystemConfiguration.framework */; };
+		9618953616E59986007D3178 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9618953516E59986007D3178 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		96269F5016DC4CA8007D96BF /* montcoRadioLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 96269F4E16DC4CA8007D96BF /* montcoRadioLogo.png */; };
 		96269F5116DC4CA8007D96BF /* montcoRadioLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96269F4F16DC4CA8007D96BF /* montcoRadioLogo@2x.png */; };
 		96269F5416DC4E47007D96BF /* ONA_MC3_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 96269F5216DC4E47007D96BF /* ONA_MC3_logo.png */; };
@@ -26,7 +31,6 @@
 		96548D4B1613A629008A0C10 /* 83-calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96548D471613A629008A0C10 /* 83-calendar@2x.png */; };
 		96548D4E1613A66A008A0C10 /* 194-note-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 96548D4C1613A66A008A0C10 /* 194-note-2.png */; };
 		96548D4F1613A66A008A0C10 /* 194-note-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96548D4D1613A66A008A0C10 /* 194-note-2@2x.png */; };
-		966133F71613D97B0075F8CE /* mccc_logo_small.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 966133F61613D97B0075F8CE /* mccc_logo_small.jpg */; };
 		966133FA1613DC840075F8CE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966133F91613DC840075F8CE /* MediaPlayer.framework */; };
 		967725D51611231F00D76B78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967725D41611231F00D76B78 /* UIKit.framework */; };
 		967725D71611231F00D76B78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967725D61611231F00D76B78 /* Foundation.framework */; };
@@ -38,9 +42,8 @@
 		967725EB1611231F00D76B78 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 967725EA1611231F00D76B78 /* Default-568h@2x.png */; };
 		967725F11611231F00D76B78 /* MWZStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967725F01611231F00D76B78 /* MWZStreamViewController.m */; };
 		967725F81611231F00D76B78 /* MWZScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967725F71611231F00D76B78 /* MWZScheduleViewController.m */; };
-		9690F45E1616265500C04E0F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9690F45C1616265400C04E0F /* InfoPlist.strings */; };
-		9690F47D1616341A00C04E0F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9690F47B1616341A00C04E0F /* Localizable.strings */; };
 		96AE63451614B92A00469E0F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AE63441614B92A00469E0F /* AVFoundation.framework */; };
+		96DEE37916E535C200402BB0 /* mccc2choriz.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96DEE37816E535C200402BB0 /* mccc2choriz.jpg */; };
 		96DF550416DC0CC70038DAD1 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DF550316DC0CC70038DAD1 /* CoreMedia.framework */; };
 		C5E5946C168226B600FF53EA /* 66-microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E5946A168226B600FF53EA /* 66-microphone.png */; };
 		C5E5946D168226B600FF53EA /* 66-microphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5E5946B168226B600FF53EA /* 66-microphone@2x.png */; };
@@ -51,8 +54,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9601A51816DC64830050CD14 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		9601A51A16DC64B00050CD14 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		960575F81682B3BB009AA40A /* MWZEpisodeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWZEpisodeTableViewCell.h; sourceTree = "<group>"; };
 		960575F91682B3BB009AA40A /* MWZEpisodeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWZEpisodeTableViewCell.m; sourceTree = "<group>"; };
+		9618952F16E594EB007D3178 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		9618953116E59857007D3178 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9618953416E59986007D3178 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		9618953516E59986007D3178 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		96269F4E16DC4CA8007D96BF /* montcoRadioLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = montcoRadioLogo.png; sourceTree = "<group>"; };
 		96269F4F16DC4CA8007D96BF /* montcoRadioLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "montcoRadioLogo@2x.png"; sourceTree = "<group>"; };
 		96269F5216DC4E47007D96BF /* ONA_MC3_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ONA_MC3_logo.png; sourceTree = "<group>"; };
@@ -72,7 +81,6 @@
 		96548D471613A629008A0C10 /* 83-calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar@2x.png"; sourceTree = "<group>"; };
 		96548D4C1613A66A008A0C10 /* 194-note-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "194-note-2.png"; sourceTree = "<group>"; };
 		96548D4D1613A66A008A0C10 /* 194-note-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "194-note-2@2x.png"; sourceTree = "<group>"; };
-		966133F61613D97B0075F8CE /* mccc_logo_small.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mccc_logo_small.jpg; sourceTree = "<group>"; };
 		966133F91613DC840075F8CE /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		967725D01611231F00D76B78 /* MWZRadioStationStreamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWZRadioStationStreamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		967725D41611231F00D76B78 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -90,13 +98,9 @@
 		967725F01611231F00D76B78 /* MWZStreamViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MWZStreamViewController.m; sourceTree = "<group>"; };
 		967725F61611231F00D76B78 /* MWZScheduleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWZScheduleViewController.h; sourceTree = "<group>"; };
 		967725F71611231F00D76B78 /* MWZScheduleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MWZScheduleViewController.m; sourceTree = "<group>"; };
-		9690F45D1616265500C04E0F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9690F46E161629F700C04E0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		9690F47A1616305B00C04E0F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainStoryboard.strings; sourceTree = "<group>"; };
-		9690F47C1616341A00C04E0F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9690F47E1616344600C04E0F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		9690F47F161634DA00C04E0F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		96AE63441614B92A00469E0F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		96DEE37816E535C200402BB0 /* mccc2choriz.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mccc2choriz.jpg; sourceTree = "<group>"; };
 		96DF550316DC0CC70038DAD1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C5E5946A168226B600FF53EA /* 66-microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "66-microphone.png"; sourceTree = "<group>"; };
 		C5E5946B168226B600FF53EA /* 66-microphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "66-microphone@2x.png"; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9618953216E59857007D3178 /* SystemConfiguration.framework in Frameworks */,
 				96DF550416DC0CC70038DAD1 /* CoreMedia.framework in Frameworks */,
 				9651B11E16265A0500FD7DB9 /* AudioToolbox.framework in Frameworks */,
 				963D0A7E1625FCC500F24931 /* Social.framework in Frameworks */,
@@ -130,9 +135,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9618953316E59920007D3178 /* App Images */ = {
+			isa = PBXGroup;
+			children = (
+				9601A51A16DC64B00050CD14 /* Icon@2x.png */,
+				9601A51816DC64830050CD14 /* Icon.png */,
+				967725E61611231F00D76B78 /* Default.png */,
+				967725E81611231F00D76B78 /* Default@2x.png */,
+				967725EA1611231F00D76B78 /* Default-568h@2x.png */,
+			);
+			name = "App Images";
+			sourceTree = "<group>";
+		};
 		963D0A5F1625E4E200F24931 /* About */ = {
 			isa = PBXGroup;
 			children = (
+				96DEE37816E535C200402BB0 /* mccc2choriz.jpg */,
 				963D0A731625EAE400F24931 /* 59-info.png */,
 				963D0A741625EAE400F24931 /* 59-info@2x.png */,
 				963D0A661625E68400F24931 /* MWZAboutViewController.h */,
@@ -187,6 +205,7 @@
 		967725D31611231F00D76B78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9618953116E59857007D3178 /* SystemConfiguration.framework */,
 				96DF550316DC0CC70038DAD1 /* CoreMedia.framework */,
 				9651B11D16265A0500FD7DB9 /* AudioToolbox.framework */,
 				963D0A7D1625FCC500F24931 /* Social.framework */,
@@ -209,7 +228,6 @@
 				96548D411613A46B008A0C10 /* Stream */,
 				967725E31611231F00D76B78 /* MWZAppDelegate.h */,
 				967725E41611231F00D76B78 /* MWZAppDelegate.m */,
-				966133F61613D97B0075F8CE /* mccc_logo_small.jpg */,
 				9690F46D161629E700C04E0F /* MainStoryboard.storyboard */,
 				967725DB1611231F00D76B78 /* Supporting Files */,
 			);
@@ -219,14 +237,13 @@
 		967725DB1611231F00D76B78 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9690F47B1616341A00C04E0F /* Localizable.strings */,
-				9690F45C1616265400C04E0F /* InfoPlist.strings */,
+				9618953416E59986007D3178 /* Reachability.h */,
+				9618953516E59986007D3178 /* Reachability.m */,
+				9618953316E59920007D3178 /* App Images */,
+				9618952F16E594EB007D3178 /* Localizable.strings */,
 				967725DC1611231F00D76B78 /* MWZRadioStationStreamer-Info.plist */,
 				967725E01611231F00D76B78 /* main.m */,
 				967725E21611231F00D76B78 /* MWZRadioStationStreamer-Prefix.pch */,
-				967725E61611231F00D76B78 /* Default.png */,
-				967725E81611231F00D76B78 /* Default@2x.png */,
-				967725EA1611231F00D76B78 /* Default-568h@2x.png */,
 				963D0A781625F5EC00F24931 /* UIViewController+ErrorMessage.h */,
 				963D0A791625F5EC00F24931 /* UIViewController+ErrorMessage.m */,
 			);
@@ -324,9 +341,6 @@
 				96548D4B1613A629008A0C10 /* 83-calendar@2x.png in Resources */,
 				96548D4E1613A66A008A0C10 /* 194-note-2.png in Resources */,
 				96548D4F1613A66A008A0C10 /* 194-note-2@2x.png in Resources */,
-				966133F71613D97B0075F8CE /* mccc_logo_small.jpg in Resources */,
-				9690F45E1616265500C04E0F /* InfoPlist.strings in Resources */,
-				9690F47D1616341A00C04E0F /* Localizable.strings in Resources */,
 				963D0A6E1625E8A200F24931 /* showData.plist in Resources */,
 				963D0A751625EAE400F24931 /* 59-info.png in Resources */,
 				963D0A761625EAE400F24931 /* 59-info@2x.png in Resources */,
@@ -337,6 +351,10 @@
 				96269F5116DC4CA8007D96BF /* montcoRadioLogo@2x.png in Resources */,
 				96269F5416DC4E47007D96BF /* ONA_MC3_logo.png in Resources */,
 				96269F5516DC4E47007D96BF /* ONA_MC3_logo@2x.png in Resources */,
+				9601A51916DC64830050CD14 /* Icon.png in Resources */,
+				9601A51B16DC64B00050CD14 /* Icon@2x.png in Resources */,
+				96DEE37916E535C200402BB0 /* mccc2choriz.jpg in Resources */,
+				9618953016E594EB007D3178 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,37 +376,19 @@
 				C5E5947B1682395300FF53EA /* MWZPodcastPlayerViewController.m in Sources */,
 				C5E5947E168242D300FF53EA /* MWZPodcastEpisode.m in Sources */,
 				960575FA1682B3BB009AA40A /* MWZEpisodeTableViewCell.m in Sources */,
+				9618953616E59986007D3178 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9690F45C1616265400C04E0F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9690F45D1616265500C04E0F /* en */,
-				9690F47F161634DA00C04E0F /* es */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		9690F46D161629E700C04E0F /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9690F46E161629F700C04E0F /* Base */,
-				9690F47A1616305B00C04E0F /* es */,
 			);
 			name = MainStoryboard.storyboard;
-			sourceTree = "<group>";
-		};
-		9690F47B1616341A00C04E0F /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9690F47C1616341A00C04E0F /* en */,
-				9690F47E1616344600C04E0F /* es */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -403,6 +403,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Wertz (V6287BUUR8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -417,6 +418,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PROVISIONING_PROFILE = "9A0F9D84-CFA6-4BC0-A434-D6994F1BC694";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9A0F9D84-CFA6-4BC0-A434-D6994F1BC694";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -430,6 +433,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jason Wertz (L37WPUNTVU)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -438,6 +442,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "B6F0AF8B-72FD-4EDD-9B15-63DE6464C08C";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
